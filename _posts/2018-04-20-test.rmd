@@ -4,7 +4,8 @@ title: Test add code
 subtitle: Let's see if this works
 ---
 test to see how to add code to a post. Does it do anything? Will it work if the post is saved as an R markdown file?
-~~~
+
+```{r load data}
 data(mtcars)
 head(mtcars)
-~~~
+```
