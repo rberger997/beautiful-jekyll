@@ -14,10 +14,10 @@ baseurl: ""
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website
-title: Ryan's thinking space
+title: Ryan's Data
 
 # Short description of your site
-description: A (semi) professional site for thinking about stuff
+description: A (somewhat) professional site for analyzing data
 
 # --- Navigation bar options --- #
 
