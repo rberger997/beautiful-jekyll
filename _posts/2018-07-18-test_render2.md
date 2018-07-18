@@ -41,5 +41,5 @@ ggplot(mtcars, aes(x=hp, y=mpg))+
   ggtitle('MPG as a function of horsepower - MTCars')
 {% endhighlight %}
 
-![center](https://rberger997.github.io/figs/2018-07-18-test_render/unnamed-chunk-1-1.png)
+![center](https://rberger997.github.io/img/2018-07-18-test_render2.R/unnamed-chunk-1-1.png)
 
