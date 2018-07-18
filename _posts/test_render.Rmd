@@ -1,0 +1,26 @@
+---
+layout: post
+title: "Test rmarkdown::render"
+author: Ryan
+date: July 18, 2018
+output: md_document
+---
+
+```{r }
+# new ---------------------------------------------------------------------
+```
+
+**Title test**
+This is a test of making an R script and using rmarkdown::render() to convert it to a markdown document that can be easily uploaded to a blog page. Lets add some data to test how it works.
+
+
+
+```{r }
+a <- matrix(1:12, nrow = 3)
+a
+
+data(mtcars)
+plot(mtcars$mpg ~ mtcars$hp)
+abline(lm(mtcars$mpg ~ mtcars$hp), col = 'red')
+```
+
