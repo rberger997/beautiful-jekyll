@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Test rmarkdown::render"
+title: "Test rmarkdown::render1"
 author: Ryan
 date: July 18, 2018
 output: html_document
