@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Test of rmarkdown render for post"
+title: "Test of rmarkdown render for post1"
 date: 2018-07-20
 ---
 
@@ -18,6 +18,6 @@ easily uploaded to a blog page. Lets add some data to test how it works.
 
     data(mtcars)
     plot(mtcars$mpg ~ mtcars$hp)
-    abline(lm(mtcars$mpg ~ mtcars$hp), col = 'red')
+
 
 ![](2018-07-18-test_render_files/figure-markdown_strict/unnamed-chunk-1-1.png)
