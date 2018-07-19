@@ -19,6 +19,7 @@ KnitPost <- function(input, base.url = myjekyllsite) {
   knit(input, envir = parent.frame())
 }
 
+# source: https://www.r-bloggers.com/creating-jekyll-blog-posts-from-r/
 
 # KnitPost('2018-07-18-R-to-Jekyll.R')
 
@@ -31,12 +32,12 @@ KnitPost <- function(input, base.url = myjekyllsite) {
 # Function to copy the output files to local blog folders
 # Will copy the .md file to blog '_posts' folder, img folder to blog 'img' folder
 
-Post.to.blog <- function(input){
+Post.to.blog <- function(file.R){
   # Where the files are going on my computer (blog local directory)
   postdir <- '~/Desktop/My files/blog/rberger997.github.io/_posts/'
   imagedir <- '~/Desktop/My files/blog/rberger997.github.io/img/'
   
-  input <- gsub('.R$', '',input)    # Remove .R from input
+  input <- gsub('.R$', '',file.R)    # Remove .R from input
   # Make copy of markdown file in '_posts' folder of blog directory
   file.copy(paste0(input,'.md'), postdir, recursive = T, overwrite = T)
   file.rename(from = paste0(postdir, input, '.md'), 
