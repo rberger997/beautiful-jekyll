@@ -53,7 +53,7 @@ Post.to.blog <- function(file.R){
   file.rename(from = paste0(postdir, input, '.md'), 
               to = paste0(postdir,Sys.Date(),'-', input, '.md'))
   # Make copy of img folder and move to 'img' folder of blog directory
-  newimg <- paste0(imagedir, input, '/')
+  newimg <- paste0(imagedir,Sys.Date(),'-',input, '/')
   dir.create(path = newimg)
   imgfiles <- list.files(path = paste0('img/',input), full.names = T)
   file.copy(imgfiles, newimg, recursive = T, overwrite = T)

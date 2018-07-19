@@ -64,7 +64,7 @@ Post.to.blog <- function(file.R){
   file.rename(from = paste0(postdir, input, '.md'), 
               to = paste0(postdir,Sys.Date(),'-', input, '.md'))
   # Make copy of img folder and move to 'img' folder of blog directory
-  newimg <- paste0(imagedir, input, '/')
+  newimg <- paste0(imagedir,Sys.Date(),'-',input, '/')
   dir.create(path = newimg)
   imgfiles <- list.files(path = paste0('img/',input), full.names = T)
   file.copy(imgfiles, newimg, recursive = T, overwrite = T)
@@ -74,7 +74,7 @@ Post.to.blog <- function(file.R){
   unlink('img/', recursive = T)
 }
 
-#' Copy these lines and save into an R file (mine is 'convert-R-to-post.R'). Note that you'll need to update the `myjekyllsite`,`postdir`, and `imgdir` for your own site URL and local directories for posts and images for the blog. The .R file will also need to have the appropriate YAML header to be recognized by Jekyll. The header for this file is as follows (with #' instead of #):
+#' Copy these lines and save into an R file (mine is 'convert-R-to-post.R'). Note that you'll need to update the `myjekyllsite`,`postdir`, and `imgdir` for your own site URL and local directories for posts and images for the blog. The .R file that you want to post will also need to have the appropriate YAML header to be recognized by Jekyll. An example header used for this post is as follows (with #' instead of #):
 
 #---
 # layout: post
@@ -113,5 +113,5 @@ boxplot(mtcars$cyl, mtcars$mpg,
 
 #+ post-entry, include=F
 # source('~/Desktop/My files/blog/rberger997.github.io/src/convert-R-to-post.R')
-# KnitPost('2018-07-18-R-to-Jekyll.R')
-# Post.to.blog('2018-07-18-R-to-Jekyll.R')
+# KnitPost('R-to-Jekyll.R')
+# Post.to.blog('R-to-Jekyll.R')
