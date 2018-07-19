@@ -1,9 +1,9 @@
 ---
 layout: post
-title: DSPA650 Chapter 4 Assignment
-subtitle: MOOC Section
-author: Ryan Berger
-date: July 3, 2018
+title: 'DSPA650 Chapter 4 Assignment'
+subtitle: 'MOOC Section'
+author: 'Ryan Berger'
+date: 'July 3, 2018'
 output:
    html_document:
      toc: true
