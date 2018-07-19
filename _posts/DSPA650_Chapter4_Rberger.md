@@ -6,8 +6,6 @@ author: "Ryan Berger"
 date: "July 3, 2018"
 output:
    html_document:
-     toc: true
-     highlight: default
      keep_md: true
  preserve_yaml: true
 ---
