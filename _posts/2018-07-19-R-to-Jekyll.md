@@ -123,7 +123,7 @@ ggplot(mtcars, aes(x=hp, y=mpg, col=wt))+
   ggtitle('MPG as a function of horsepower - MTCars')
 {% endhighlight %}
 
-![center](https://myname.github.io/img/R-to-Jekyll/unnamed-chunk-4-1.png)
+![center](https://myname.github.io/img/2018-07-19-R-to-Jekyll/unnamed-chunk-4-1.png)
 
 {% highlight r %}
 # test boxplot
@@ -132,6 +132,6 @@ boxplot(mtcars$cyl, mtcars$mpg,
         col = c('red', 'blue'))
 {% endhighlight %}
 
-![center](https://myname.github.io/img/R-to-Jekyll/unnamed-chunk-4-2.png)
+![center](https://myname.github.io/img/2018-07-19-R-to-Jekyll/unnamed-chunk-4-2.png)
 
 

@@ -46,7 +46,7 @@ KnitPost <- function(input, base.url = myjekyllsite) {
   require(knitr)
   spin(input, knit = T, format = 'Rmd', report = F)
   opts_knit$set(base.url = base.url)
-  fig.path <- paste0("img/", sub(".R$", "", basename(input)), "/")
+  fig.path <- paste0("img/", Sys.Date(),'-',sub(".R$", "",basename(input)), "/")
   opts_chunk$set(fig.path = fig.path)
   opts_chunk$set(fig.cap = "center")
   render_jekyll()
