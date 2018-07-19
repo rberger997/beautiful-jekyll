@@ -46,5 +46,13 @@ ggplot(mtcars, aes(x=hp, y=mpg))+
   theme_bw()
 {% endhighlight %}
 
-![center](https://rberger997.github.io/img/2018-07-18-R-to-Jekyll.R/unnamed-chunk-1-1.png)
+![center](https://rberger997.github.io/img/2018-07-18-R-to-Jekyll/unnamed-chunk-1-1.png)
+
+{% highlight r %}
+boxplot(mtcars$cyl, mtcars$mpg,
+        main = 'testplot2')
+{% endhighlight %}
+
+![center](https://rberger997.github.io/img/2018-07-18-R-to-Jekyll/unnamed-chunk-1-2.png)
+
 

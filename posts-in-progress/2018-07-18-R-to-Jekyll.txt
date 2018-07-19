@@ -32,3 +32,12 @@ ggplot(mtcars, aes(x=hp, y=mpg))+
   geom_point() +
   ggtitle('MPG as a function of horsepower - MTCars') +
   theme_bw()
+
+boxplot(mtcars$cyl, mtcars$mpg,
+        main = 'testplot2')
+
+
+#+ post-entry, include=F
+# source('~/Desktop/My files/blog/rberger997.github.io/src/convert-R-to-post.R')
+# KnitPost('2018-07-18-R-to-Jekyll.R')
+# Post.to.blog('2018-07-18-R-to-Jekyll.R')
