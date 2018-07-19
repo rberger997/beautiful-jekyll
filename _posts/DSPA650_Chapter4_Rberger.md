@@ -1,13 +1,12 @@
 ---
 layout: post
-title: "DSPA650 Chapter 4 Assignment"
-subtitle: "MOOC Section"
+title: "DSPA650 Chapter 4 - Matrices"
 author: "Ryan Berger"
-date: "July 3, 2018"
-output:
-   html_document:
-     keep_md: true
- preserve_yaml: true
+date: "July 18, 2018"
+output: 
+  html_document:
+    keep_md: true
+preserve_yaml: true
 ---
 
 
