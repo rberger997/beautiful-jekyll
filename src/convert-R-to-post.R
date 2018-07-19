@@ -19,6 +19,7 @@ KnitPost <- function(input, base.url = myjekyllsite) {
   knit(input, envir = parent.frame())
 }
 
+
 # KnitPost('2018-07-18-R-to-Jekyll.R')
 
 
@@ -38,6 +39,8 @@ Post.to.blog <- function(input){
   input <- gsub('.R$', '',input)    # Remove .R from input
   # Make copy of markdown file in '_posts' folder of blog directory
   file.copy(paste0(input,'.md'), postdir, recursive = T, overwrite = T)
+  file.rename(from = paste0(postdir, input, '.md'), 
+              to = paste0(postdir,Sys.Date(),'-', input, '.md'))
   # Make copy of img folder and move to 'img' folder of blog directory
   newimg <- paste0(imagedir, input, '/')
   dir.create(path = newimg)
