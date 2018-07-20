@@ -20,6 +20,7 @@ Post.to.blog <- function(input, base.url = myjekyllsite) {
   ## CHANGE THESE DIRECTORIES TO YOUR LOCAL BLOG DIRECTORIES ##
   postdir <- '~/Desktop/My files/blog/rberger997.github.io/_posts/'
   imagedir <- '~/Desktop/My files/blog/rberger997.github.io/img/'
+  sourcedir <- '~/Desktop/My files/blog/rberger997.github.io/posts-source-files/'
   #-------------
   
   ## Spin with knitr ##
@@ -44,10 +45,17 @@ Post.to.blog <- function(input, base.url = myjekyllsite) {
   dir.create(path = newimg)
   imgfiles <- list.files(path = paste0('img/',input), full.names = T)
   file.copy(imgfiles, newimg, recursive = T, overwrite = T)
-  print(paste(input, 'Posted'))
   # Delete files created in wd for posting (.md, .txt, img/)
   file.remove(paste0(input, '.md'))
   unlink('img/', recursive = T)
+  
+  ## Create copy of .R file in posts-source-files folder
+  newsource <- paste0(sourcedir, input)
+  dir.create(path = newsource)
+  file.copy(paste0(input, '.R'), newsource, recursive = T, overwrite = T)
+  
+  # Finished message
+  print(paste(input, 'Posted'))
 }
 
 

@@ -72,7 +72,7 @@ Post.to.blog <- function(input, base.url = myjekyllsite) {
 }
 {% endhighlight %}
 
-Copy these lines and save into an R file (mine is 'convert-R-to-post.R'). Note that you'll need to update the `myjekyllsite`,`postdir`, and `imgdir` to your own site URL and local directories for posts and images. The .R file that you want to post will also need to have the appropriate YAML header to be recognized by Jekyll. An example header used for this post is as follows (with #' instead of #):
+Copy this function and save into an R file (mine is 'convert-R-to-post.R'). Note that you'll need to update the `myjekyllsite`,`postdir`, and `imgdir` to your own site URL and local directories for posts and images. The .R file that you want to post will also need to have the appropriate YAML header to be recognized by Jekyll. An example header used for this post is as follows (with #' instead of #):
 
 
 {% highlight r %}
@@ -90,7 +90,7 @@ Copy these lines and save into an R file (mine is 'convert-R-to-post.R'). Note t
 <br>
 When you are ready to make a post to your blog simply run `source('convert-R-to-post.R'` and `Post.to.blog('2018-07-19-file-i-want-to-post.R')`. The .md file sohuld automatically go to your `postdir` folder and images go to your `img` folder. Push this to Github and everything should post on your Jekyll github page. (**Note: filenames should have format of 'YYYY-MM-DD-filename.R' to work effectively with the Jekyll post format).
 <br><br>
-I just started using this today and it works great for me but this will need to be tested for reproducibility. Also I'm new at making Jekyll blogs so this may not be the most efficient way to accomplish this. I can say, however, that it works; this post was written entirely in a .R file and posted using the script. Let's take a look at some example data just to make sure that R outputs and plots are showing up correctly:
+I just started using this today and it works great for me but it will need to be tested for reproducibility. Also I'm new at making Jekyll blogs so this may not be the most efficient way to accomplish this. I can say, however, that it works; this post was written entirely in a .R file and was quickly posted using the script. Let's take a look at some example data just to make sure that R outputs and plots are showing up correctly:
 
 
 {% highlight r %}
