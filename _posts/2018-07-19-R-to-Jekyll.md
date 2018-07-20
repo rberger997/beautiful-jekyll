@@ -6,6 +6,8 @@ author: "Ryan Berger"
 date: "July 19, 2018"
 output: 
   html_document:
+    theme: spacelab	
+    highlight: tango	
     keep_md: true
 preserve_yaml: true
 ---
@@ -129,7 +131,7 @@ boxplot(mtcars$cyl, mtcars$mpg,
 
 ![center](https://rberger997.github.io/img/2018-07-19-R-to-Jekyll/unnamed-chunk-4-2.png)
 
-*This post was written entirely in a .R file. To see the full source, click [here](https://github.com/rberger997/rberger997.github.io/blob/master/posts-in-progress/2018-07-19-R-to-Jekyll.R)*
+*This post was written entirely in a .R file. To see the full source, click [here](https://github.com/rberger997/rberger997.github.io/blob/master/posts-in-progress/2018-07-19-R-to-Jekyll.R).*
 
 
 

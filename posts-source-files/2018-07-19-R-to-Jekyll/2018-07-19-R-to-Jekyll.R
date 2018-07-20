@@ -6,6 +6,8 @@
 #' date: "July 19, 2018"
 #' output: 
 #'   html_document:
+#'     theme: spacelab	
+#'     highlight: tango	
 #'     keep_md: true
 #' preserve_yaml: true
 #' ---
@@ -111,7 +113,7 @@ boxplot(mtcars$cyl, mtcars$mpg,
         col = c('red', 'blue'))
 
 
-#' *This post was written entirely in a .R file. To see the full source, click [here](https://github.com/rberger997/rberger997.github.io/blob/master/posts-in-progress/2018-07-19-R-to-Jekyll.R)*
+#' *This post was written entirely in a .R file. To see the full source, click [here](https://github.com/rberger997/rberger997.github.io/blob/master/posts-in-progress/2018-07-19-R-to-Jekyll.R).*
 
 #+ post-entry, include=F
 source('~/Desktop/My files/blog/rberger997.github.io/src/convert-R-to-post.R')
