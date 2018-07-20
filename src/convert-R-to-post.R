@@ -13,19 +13,11 @@
 #------------------
 
 
-## Update these sections for your own site:
-# Site address
-myjekyllsite <-  c('https://rberger997.github.io/')
-
-# Where the files are going on my computer (blog local directory)
-postdir <- '~/Desktop/My files/blog/rberger997.github.io/_posts/'
-imagedir <- '~/Desktop/My files/blog/rberger997.github.io/img/'
-
-
-
-
 # Function for making .md file from .R file for posting on jekyll:
 KnitPost <- function(input, base.url = myjekyllsite) {
+  ## CHANGE THIS TO YOUR SITE URL ##
+  myjekyllsite <-  c('https://rberger997.github.io/')
+  
   require(knitr)
   spin(input, knit = T, format = 'Rmd', report = F)
   opts_knit$set(base.url = base.url)
@@ -47,7 +39,12 @@ KnitPost <- function(input, base.url = myjekyllsite) {
 # Will copy the .md file to blog '_posts' folder, img folder to blog 'img' folder
 
 Post.to.blog <- function(file.R){
-  input <- gsub('.R$', '',file.R)    # Remove .R from input
+  ## CHANGE THESE DIRECTORIES TO YOUR LOCAL BLOG DIRECTORIES ##
+  postdir <- '~/Desktop/My files/blog/rberger997.github.io/_posts/'
+  imagedir <- '~/Desktop/My files/blog/rberger997.github.io/img/'
+  
+  # Remove .R from input
+  input <- gsub('.R$', '',file.R)    
   # Make copy of markdown file in '_posts' folder of blog directory
   file.copy(paste0(input,'.md'), postdir, recursive = T, overwrite = T)
   # Make copy of img folder and move to 'img' folder of blog directory

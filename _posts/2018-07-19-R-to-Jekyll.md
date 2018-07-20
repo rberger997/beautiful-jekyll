@@ -34,17 +34,11 @@ This was surprisingly difficult to figure out but I've come up with a solution t
 {% endhighlight %}
 
 {% highlight r %}
-## Update these sections for your own site:
-# Site address
-myjekyllsite <-  c('https://myname.github.io/')
-
-# Where the files are going on your computer (blog local directory)
-postdir <- '~/Desktop/My_path/blog/myname.github.io/_posts/'
-imagedir <- '~/Desktop/My_path/blog/myname.github.io/img/'
-
-
 # Function for making .md file from .R file for posting on jekyll:
 KnitPost <- function(input, base.url = myjekyllsite) {
+  ## CHANGE THIS TO YOUR SITE URL ##
+  myjekyllsite <-  c('https://rberger997.github.io/')
+  
   require(knitr)
   spin(input, knit = T, format = 'Rmd', report = F)
   opts_knit$set(base.url = base.url)
@@ -60,7 +54,12 @@ KnitPost <- function(input, base.url = myjekyllsite) {
 # Will copy the .md file to blog '_posts' folder, img folder to blog 'img' folder
 
 Post.to.blog <- function(file.R){
-  input <- gsub('.R$', '',file.R)    # Remove .R from input
+  ## CHANGE THESE DIRECTORIES TO YOUR LOCAL BLOG DIRECTORIES ##
+  postdir <- '~/Desktop/My files/blog/rberger997.github.io/_posts/'
+  imagedir <- '~/Desktop/My files/blog/rberger997.github.io/img/'
+  
+  # Remove .R from input
+  input <- gsub('.R$', '',file.R)    
   # Make copy of markdown file in '_posts' folder of blog directory
   file.copy(paste0(input,'.md'), postdir, recursive = T, overwrite = T)
   # Make copy of img folder and move to 'img' folder of blog directory
@@ -91,9 +90,9 @@ Copy these lines and save into an R file (mine is 'convert-R-to-post.R'). Note t
 {% endhighlight %}
 
 <br>
-When you are ready to make a post to your blog simply run `source('convert-R-to-post.R'`, `KnitPost('my-file.R')`, and `Post.to.blog('my-file.R')`. The .md file sohuld automatically go to your `postdir` folder and images go to your `img` folder. Push this to Github and everything should post on your Jekyll github page.
+When you are ready to make a post to your blog simply run `source('convert-R-to-post.R'`, `KnitPost('2018-07-19-my-file.R')`, and `Post.to.blog('2018-07-19-my-file.R')`. The .md file sohuld automatically go to your `postdir` folder and images go to your `img` folder. Push this to Github and everything should post on your Jekyll github page. (**Note: filenames should have format of 'YYYY-MM-DD-filename.R' to work effectively with the Jekyll post format).
 <br>
-I have just started using this today and it works great for me but this will need to be tested for reproducibility. Also I'm new at making Jekyll blogs from R scripts so this may not be the most efficient way to accomplish this. I can say, however, that it works; this post was written entirely in a .R file and posted using the script. Let's take a look at some example data just to make sure that R outputs and plots are showing up correctly:
+I just started using this today and it works great for me but this will need to be tested for reproducibility. Also I'm new at making Jekyll blogs from R scripts so this may not be the most efficient way to accomplish this. I can say, however, that it works; this post was written entirely in a .R file and posted using the script. Let's take a look at some example data just to make sure that R outputs and plots are showing up correctly:
 
 
 {% highlight r %}
@@ -121,7 +120,7 @@ ggplot(mtcars, aes(x=hp, y=mpg, col=wt))+
   ggtitle('MPG as a function of horsepower - MTCars')
 {% endhighlight %}
 
-![center](https://myname.github.io/img/2018-07-19-R-to-Jekyll/unnamed-chunk-4-1.png)
+![center](https://rberger997.github.io/img/2018-07-19-R-to-Jekyll/unnamed-chunk-4-1.png)
 
 {% highlight r %}
 # test boxplot
@@ -130,6 +129,6 @@ boxplot(mtcars$cyl, mtcars$mpg,
         col = c('red', 'blue'))
 {% endhighlight %}
 
-![center](https://myname.github.io/img/2018-07-19-R-to-Jekyll/unnamed-chunk-4-2.png)
+![center](https://rberger997.github.io/img/2018-07-19-R-to-Jekyll/unnamed-chunk-4-2.png)
 
 
