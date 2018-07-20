@@ -1,8 +1,9 @@
 #'---
 #' layout: post
 #' title: "Converting R files to Jekyll posts"
+#' subtitle: "From .R to posted in 30 seconds"
 #' author: "Ryan Berger"
-#' date: "July 18, 2018"
+#' date: "July 19, 2018"
 #' output: 
 #'   html_document:
 #'     keep_md: true
