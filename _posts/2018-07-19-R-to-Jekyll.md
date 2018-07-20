@@ -48,12 +48,12 @@ KnitPost <- function(input, base.url = myjekyllsite) {
   require(knitr)
   spin(input, knit = T, format = 'Rmd', report = F)
   opts_knit$set(base.url = base.url)
-  fig.path <- paste0("img/", Sys.Date(),'-',sub(".R$", "",basename(input)), "/")
+  fig.path <- paste0("img/",sub(".R$", "",basename(input)), "/")
   opts_chunk$set(fig.path = fig.path)
   opts_chunk$set(fig.cap = "center")
   render_jekyll()
   knit(input, envir = parent.frame())
-  file.remove(paste0(sub('.R$','',input), '.txt')) # delete .txt file
+  file.remove(paste0(sub('.R$','.txt',input))) # delete .txt file
 }
 
 # Function to copy the output files to local blog folders
@@ -63,10 +63,8 @@ Post.to.blog <- function(file.R){
   input <- gsub('.R$', '',file.R)    # Remove .R from input
   # Make copy of markdown file in '_posts' folder of blog directory
   file.copy(paste0(input,'.md'), postdir, recursive = T, overwrite = T)
-  file.rename(from = paste0(postdir, input, '.md'), 
-              to = paste0(postdir,Sys.Date(),'-', input, '.md'))
   # Make copy of img folder and move to 'img' folder of blog directory
-  newimg <- paste0(imagedir,Sys.Date(),'-',input, '/')
+  newimg <- paste0(imagedir,input, '/')
   dir.create(path = newimg)
   imgfiles <- list.files(path = paste0('img/',input), full.names = T)
   file.copy(imgfiles, newimg, recursive = T, overwrite = T)
