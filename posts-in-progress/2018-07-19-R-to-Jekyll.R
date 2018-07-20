@@ -32,28 +32,30 @@
 # 6. Check blog to make sure it posted
 #------------------
 
-Post.to.blog <- function(input, base.url = myjekyllsite){
-  #------------------
+Post.to.blog <- function(input, base.url = myjekyllsite) {
+  #-------------
+  ## CHANGE THIS TO YOUR SITE URL ##
+  myjekyllsite <-  c('https://rberger997.github.io/')
   ## CHANGE THESE DIRECTORIES TO YOUR LOCAL BLOG DIRECTORIES ##
   postdir <- '~/Desktop/My files/blog/rberger997.github.io/_posts/'
   imagedir <- '~/Desktop/My files/blog/rberger997.github.io/img/'
-  ## CHANGE THIS TO YOUR SITE URL ##
-  myjekyllsite <-  c('https://rberger997.github.io/')
-  #------------------
+  #-------------
+  
+  ## Spin with knitr ##
   require(knitr)
   spin(input, knit = T, format = 'Rmd', report = F)
-  # Set up paths for knit spin
   opts_knit$set(base.url = base.url)
-  fig.path <- paste0("img/",basename(input), "/")
+  fig.path <- paste0("img/",sub(".R$", "",basename(input)), "/")
   opts_chunk$set(fig.path = fig.path)
   opts_chunk$set(fig.cap = "center")
   render_jekyll()
   knit(input, envir = parent.frame())
+  file.remove(paste0(sub('.R$','.txt',input))) # delete .txt file
   
   ## Move files into blog post directory ##
   
   # Remove .R from input
-  input <- gsub('.R$', '',input)
+  input <- gsub('.R$', '',input)    
   # Make copy of markdown file in '_posts' folder of blog directory
   file.copy(paste0(input,'.md'), postdir, recursive = T, overwrite = T)
   # Make copy of img folder and move to 'img' folder of blog directory
@@ -64,9 +66,9 @@ Post.to.blog <- function(input, base.url = myjekyllsite){
   print(paste(input, 'Posted'))
   # Delete files created in wd for posting (.md, .txt, img/)
   file.remove(paste0(input, '.md'))
-  file.remove(paste0(input,'.txt')) # delete .txt file
   unlink('img/', recursive = T)
 }
+
 
 
 
@@ -89,7 +91,7 @@ Post.to.blog <- function(input, base.url = myjekyllsite){
 
 #' <br>
 #' When you are ready to make a post to your blog simply run `source('convert-R-to-post.R'`, `KnitPost('2018-07-19-my-file.R')`, and `Post.to.blog('2018-07-19-my-file.R')`. The .md file sohuld automatically go to your `postdir` folder and images go to your `img` folder. Push this to Github and everything should post on your Jekyll github page. (**Note: filenames should have format of 'YYYY-MM-DD-filename.R' to work effectively with the Jekyll post format).
-#' <br>
+#' <br><br>
 #' I just started using this today and it works great for me but this will need to be tested for reproducibility. Also I'm new at making Jekyll blogs from R scripts so this may not be the most efficient way to accomplish this. I can say, however, that it works; this post was written entirely in a .R file and posted using the script. Let's take a look at some example data just to make sure that R outputs and plots are showing up correctly:
 
 

@@ -13,28 +13,30 @@
 #------------------
 
 
-Post.to.blog <- function(input, base.url = myjekyllsite){
-  #------------------
+Post.to.blog <- function(input, base.url = myjekyllsite) {
+  #-------------
+  ## CHANGE THIS TO YOUR SITE URL ##
+  myjekyllsite <-  c('https://rberger997.github.io/')
   ## CHANGE THESE DIRECTORIES TO YOUR LOCAL BLOG DIRECTORIES ##
   postdir <- '~/Desktop/My files/blog/rberger997.github.io/_posts/'
   imagedir <- '~/Desktop/My files/blog/rberger997.github.io/img/'
-  ## CHANGE THIS TO YOUR SITE URL ##
-  myjekyllsite <-  c('https://rberger997.github.io/')
-  #------------------
+  #-------------
+  
+  ## Spin with knitr ##
   require(knitr)
   spin(input, knit = T, format = 'Rmd', report = F)
-  # Set up paths for knit spin
   opts_knit$set(base.url = base.url)
-  fig.path <- paste0("img/",basename(input), "/")
+  fig.path <- paste0("img/",sub(".R$", "",basename(input)), "/")
   opts_chunk$set(fig.path = fig.path)
   opts_chunk$set(fig.cap = "center")
   render_jekyll()
   knit(input, envir = parent.frame())
-
+  file.remove(paste0(sub('.R$','.txt',input))) # delete .txt file
+  
   ## Move files into blog post directory ##
   
   # Remove .R from input
-  input <- gsub('.R$', '',input)
+  input <- gsub('.R$', '',input)    
   # Make copy of markdown file in '_posts' folder of blog directory
   file.copy(paste0(input,'.md'), postdir, recursive = T, overwrite = T)
   # Make copy of img folder and move to 'img' folder of blog directory
@@ -45,7 +47,6 @@ Post.to.blog <- function(input, base.url = myjekyllsite){
   print(paste(input, 'Posted'))
   # Delete files created in wd for posting (.md, .txt, img/)
   file.remove(paste0(input, '.md'))
-  file.remove(paste0(input,'.txt')) # delete .txt file
   unlink('img/', recursive = T)
 }
 
