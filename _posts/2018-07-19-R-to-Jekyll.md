@@ -19,7 +19,7 @@ Now typically there's no problem with using .R scripts except for when it comes 
 - See the page on my Jekyll site
 <br>
 
-This took some time to figure out but I've come up with a solution that seems to work well. After getting some inspiration and borrowing some code from an [R-bloggers article](https://www.r-bloggers.com/creating-jekyll-blog-posts-from-r/), I've written a function that takes in a .R file and preps everything for a blog post; you just push your results to Github and you're done. Here is the script:
+This took some time to figure out but I've come up with a solution that seems to work well. After getting some inspiration and borrowing some code from an [R-bloggers article](https://www.r-bloggers.com/creating-jekyll-blog-posts-from-r/) by Adam Duncan, I've written a function that takes in a .R file and preps everything for a blog post; just run the function and push your results to Github and you're done! Here is the script:
 
 
 
@@ -90,7 +90,7 @@ Copy this function and save into an R file (mine is 'convert-R-to-post.R'). Note
 <br>
 When you are ready to make a post to your blog simply run `source('convert-R-to-post.R'` and `Post.to.blog('2018-07-19-file-i-want-to-post.R')`. The .md file sohuld automatically go to your `postdir` folder and images go to your `img` folder. Push this to Github and everything should post on your Jekyll github page. (**Note: filenames should have format of 'YYYY-MM-DD-filename.R' to work effectively with the Jekyll post format).
 <br><br>
-I just started using this today and it works great for me but it will need to be tested for reproducibility. Also I'm new at making Jekyll blogs so this may not be the most efficient way to accomplish this. I can say, however, that it works; this post was written entirely in a .R file and was quickly posted using the script. Let's take a look at some example data just to make sure that R outputs and plots are showing up correctly:
+I just started using this today and it works great for me but will need to be tested for reproducibility. I built this blog recently using a [template made by Dean Attali](https://github.com/daattali/beautiful-jekyll ) so the function may need to be altered if your blog is in a different format than Dean's template. Those who have been using Jekyll for a long time may find this function isn't the most efficient way to make a post but I can say that it works for me; this post was written entirely in a .R file and was quickly posted using the script. As a final test let's take a look at some example data just to make sure that the R console outputs and plots are showing up correctly:
 
 
 {% highlight r %}
