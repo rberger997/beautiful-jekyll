@@ -13,38 +13,28 @@
 #------------------
 
 
-# Function for making .md file from .R file for posting on jekyll:
-KnitPost <- function(input, base.url = myjekyllsite) {
+Post.to.blog <- function(input, base.url = myjekyllsite){
+  #------------------
+  ## CHANGE THESE DIRECTORIES TO YOUR LOCAL BLOG DIRECTORIES ##
+  postdir <- '~/Desktop/My files/blog/rberger997.github.io/_posts/'
+  imagedir <- '~/Desktop/My files/blog/rberger997.github.io/img/'
   ## CHANGE THIS TO YOUR SITE URL ##
   myjekyllsite <-  c('https://rberger997.github.io/')
-  
+  #------------------
   require(knitr)
   spin(input, knit = T, format = 'Rmd', report = F)
+  # Set up paths for knit spin
   opts_knit$set(base.url = base.url)
-  fig.path <- paste0("img/",sub(".R$", "",basename(input)), "/")
+  fig.path <- paste0("img/",basename(input), "/")
   opts_chunk$set(fig.path = fig.path)
   opts_chunk$set(fig.cap = "center")
   render_jekyll()
   knit(input, envir = parent.frame())
-  file.remove(paste0(sub('.R$','.txt',input))) # delete .txt file
-}
 
-
-# The output is a .md file and img folder in the working directory
-
-# To post on Jekyll, the .md file needs to go into the blog '_posts' folder, img folder into the blog img folder, and push to github.
-
-
-# Function to copy the output files to local blog folders
-# Will copy the .md file to blog '_posts' folder, img folder to blog 'img' folder
-
-Post.to.blog <- function(file.R){
-  ## CHANGE THESE DIRECTORIES TO YOUR LOCAL BLOG DIRECTORIES ##
-  postdir <- '~/Desktop/My files/blog/rberger997.github.io/_posts/'
-  imagedir <- '~/Desktop/My files/blog/rberger997.github.io/img/'
+  ## Move files into blog post directory ##
   
   # Remove .R from input
-  input <- gsub('.R$', '',file.R)    
+  input <- gsub('.R$', '',input)
   # Make copy of markdown file in '_posts' folder of blog directory
   file.copy(paste0(input,'.md'), postdir, recursive = T, overwrite = T)
   # Make copy of img folder and move to 'img' folder of blog directory
@@ -55,13 +45,13 @@ Post.to.blog <- function(file.R){
   print(paste(input, 'Posted'))
   # Delete files created in wd for posting (.md, .txt, img/)
   file.remove(paste0(input, '.md'))
+  file.remove(paste0(input,'.txt')) # delete .txt file
   unlink('img/', recursive = T)
 }
+
 
 # Add this block to the bottom of your .R blog post file:
 
 #+ post-entry, include=F
 # source('~/Desktop/My files/blog/rberger997.github.io/src/convert-R-to-post.R')
-# KnitPost('2018-07-18-R-to-Jekyll.R')
 # Post.to.blog('2018-07-18-R-to-Jekyll.R')
-
