@@ -15,13 +15,12 @@ preserve_yaml: true
 
 
 With the start of a new college football season just a few weeks away, I've been thinking about a question I've heard for many years in one form or another: how much does recruiting matter? Recently there's been a lot of attention paid to football recruiting on TV, websites, blogs, message boards, and social media but is it really important? Does grabbing the headlines on signing day in February lead to a team taking home the hardware in December and January? 
-
-<br><br>
+<br>
 The short answer to these questions is yes, recruiting is important for team success on a national level, but I want to go a step further and investigate the data to quantify its effects. Using recruiting data and team records from the last ten years, let's take a look at how much recruiting matters.
 <br><br>
 
 ## The data
-When it comes to the best recruiting data for college football, there is no substitute for the [247Sports composite rating](https://247sports.com/Season/2019-Football/CompositeTeamRankings/). This rating system generates composite player ratings for roughly 4000 high school football players every year and creates team ratings using a weighted Gaussian distribution formula of the individual player composites. I've compiled the team class ratings for the last 10 years and will use these to quantify the recruiting talent brought in by each team.
+When it comes to the best recruiting data for college football, there is no substitute for [247Sports](https://247sports.com/Season/2019-Football/CompositeTeamRankings/). Their rating system generates composite player ratings for roughly 4000 high school football players every year and creates team ratings using a weighted Gaussian distribution formula of the individual player composites. I've compiled the team class ratings for the last 10 years and will use these to quantify the recruiting talent brought in by each team.
 <br><br>
 I've also gathered the win/loss data for each team over the last decade by web scraping the [football outsiders advanced NCAA stats page](https://www.footballoutsiders.com/stats/ncaa) (source file [here](**insert_github_link**).
 
@@ -30,47 +29,9 @@ I've also gathered the win/loss data for each team over the last decade by web s
 
 
 
-{% highlight r %}
-# Load recruiting data and SP+ dataset
-rec <- read.csv(file = '../data/recruiting_data_long.csv') %>% 
-  select(-X)
-sp <- read.csv(file = '../data/sp_data.csv')
-
-
-# Add class rank to recruiting data
-newrec <- NULL
-for(year in 2002:2018){
-  temp <- filter(rec, Year == year) %>% 
-    arrange(-value)
-  temp$rank <- 1:nrow(temp)
-  newrec <- rbind(newrec, temp)
-  rm(temp)
-}
-rec <- newrec
-
-
-# Load postseason data
-post <- read.csv(file = '../data/cfb_postseason.csv')
-
-# Get win/loss data from SP+ data
-wl <- select(sp, c(Team, W, L,Year)) 
-
-# Combine win/loss with recruiting data
-cfb <- inner_join(rec, wl, by = Cs(Team, Year))
-{% endhighlight %}
-
-
-
 {% highlight text %}
 ## Warning: Column `Team` joining factors with different levels, coercing to
 ## character vector
-{% endhighlight %}
-
-
-
-{% highlight r %}
-# Check for missing data
-table(is.na(cfb))
 {% endhighlight %}
 
 
@@ -83,47 +44,9 @@ table(is.na(cfb))
 
 
 
-{% highlight r %}
-# Remove missing data
-cfb <- cfb[complete.cases(cfb),]
-# Join with postseason data
-cfb <- left_join(cfb, post, by = Cs(Team, Year))
-{% endhighlight %}
-
-
-
 {% highlight text %}
 ## Warning: Column `Team` joining character vector and factor, coercing into
 ## character vector
-{% endhighlight %}
-
-
-
-{% highlight r %}
-cfb[is.na(cfb)] <- 0
-
-# Get average W/L, recruiting, and SP+ for each team for last 10 years
-avgs <- cfb %>% 
-  filter(Year >= 2008) %>% 
-  group_by(Team) %>% 
-  summarise(Avg.rec = mean(value),
-            Avg.rec_rank = mean(rank),
-            Avg.W = mean(W), 
-            Avg.L = mean(L),
-            Nat_champ = sum(natl_champ),
-            title_games = sum(title_game),
-            playoff_apps = sum(playoff)) %>% 
-  as.data.frame() %>% 
-  arrange(-Avg.rec)
-
-
-
-# Round averages
-avgs[,2:6] <- avgs[,2:6] %>% 
-  round(., 1)
-
-
-ggthemr(palette = 'fresh')
 {% endhighlight %}
 
 
@@ -133,33 +56,7 @@ ggthemr(palette = 'fresh')
 ## plot.tag.position
 {% endhighlight %}
 
-
-
-{% highlight r %}
-ggplot(data = avgs, aes(x=Avg.rec, y=Avg.W))+
-  geom_point()+
-  xlab('Average recruiting score \n(247 Composite)')+
-  ylab('Average wins per season')+
-  labs(title = 'NCAA Football Wins vs Recruting Score',
-       subtitle = '2008-2017')+
-  geom_smooth(method = 'lm', col ='red')+
-  geom_text_repel(data = subset(avgs, Avg.W >= 10), aes(label = Team))+
-  stat_poly_eq(formula = avgs$Avg.W ~ avgs$Avg.rec, 
-               aes(label = paste(..eq.label.., 
-                                 ..rr.label.., 
-                                 sep = "~~~")), parse = TRUE,
-               label.x = 275,
-               label.y = 2.5)
-{% endhighlight %}
-
 ![center](https://rberger997.github.io/img/2018-07-30-cfb-project/load_data-1.png)
-
-{% highlight r %}
-# library(plotly)
-# ggplotly(p=ggplot2::last_plot(), originalData = T, dynamicTicks = F)
-
-ggthemr_reset()
-{% endhighlight %}
 
 |Team                  | Avg.rec| Avg.rec_rank| Avg.W| Avg.L| Nat_champ| title_games| playoff_apps|
 |:---------------------|-------:|------------:|-----:|-----:|---------:|-----------:|------------:|
