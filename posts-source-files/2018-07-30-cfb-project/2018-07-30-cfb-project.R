@@ -12,42 +12,6 @@
 #' ---
 
 
-
-#+ Outline, include=F
-# Outline of this post:
-# Question: How much does recruting matter in college football?
-# - Plot of Wins vs recruiting score 
-#   - Shows that recruiting leads to winning
-# - Table of postseason results
-#   - Shows that results come from elite recruiting
-# - Table of champions/runner ups (narrow down on champions)
-#   - Shows that to make the title game takes elite recruting
-# - Table of 2018 teams
-#   - Show the teams that fit the title game profile of last 10 years
-
-
-
-
-#' 
-#' With the start of a new college football season just a few weeks away, I've been thinking about a question I've heard for many years in one form or another: how much does recruiting matter? Recently there's been a lot of attention paid to football recruiting on TV, websites, blogs, message boards, and social media but is it really important? Does grabbing the headlines on signing day in February lead to a team taking home the hardware in December and January? 
-#' 
-#' 
-#' The short answer to these questions is yes, recruiting is important for team success on a national level, but I want to go a step further and investigate the data to quantify its effects. Using recruiting data and team records from the last ten years, let's take a look at how much recruiting matters.
-#' <br><br>
-#' 
-#' ## The data
-#' When it comes to the best recruiting data for college football, there is no substitute for [247Sports](https://247sports.com/Season/2019-Football/CompositeTeamRankings/). Their rating system generates composite player ratings for roughly 4000 high school football players every year and creates team ratings using a weighted Gaussian distribution formula of the individual player composites. I've compiled the team class ratings for the last 10 years and will use these to quantify the recruiting talent brought in by each team.
-#'
-#'
-#' I've also gathered the win/loss data for each team over the last decade by web scraping the [football outsiders](https://www.footballoutsiders.com/stats/ncaa) advanced NCAA stats page from 2008 to 2017. (For the source file click [here](**insert_github_link**)).
-#' 
-#' 
-#' 
-
-
-
-
-
 #+ libraries, echo=F
 library(dplyr)
 library(ggplot2)
@@ -60,13 +24,15 @@ library(knitr)
 
 
 
-#+ load_data, echo=F, message=F, warning=F
-# Load recruiting data and SP+ dataset
+#+ source_script, echo=F, message=F, warning=F
+# Load recruiting data, SP+ dataset, and postseason data
 rec <- read.csv(file = '../data/recruiting_data_long.csv') %>% 
   select(-X)
 sp <- read.csv(file = '../data/sp_data.csv')
+post <- read.csv(file = '../data/cfb_postseason.csv')
 
 
+#### data_processing
 # Add class rank to recruiting data
 newrec <- NULL
 for(year in 2002:2018){
@@ -79,9 +45,6 @@ for(year in 2002:2018){
 rec <- newrec
 
 
-# Load postseason data
-post <- read.csv(file = '../data/cfb_postseason.csv')
-
 # Get win/loss data from SP+ data
 wl <- select(sp, c(Team, W, L,Year)) 
 
@@ -90,6 +53,7 @@ cfb <- inner_join(rec, wl, by = Cs(Team, Year))
 
 # Check for missing data
 # table(is.na(cfb))
+
 # Remove missing data
 cfb <- cfb[complete.cases(cfb),]
 # Join with postseason data
@@ -104,9 +68,9 @@ avgs <- cfb %>%
             Avg.rec_rank = mean(rank),
             Avg.W = mean(W), 
             Avg.L = mean(L),
-            Nat_champ = sum(natl_champ),
+            playoff_apps = sum(playoff),
             title_games = sum(title_game),
-            playoff_apps = sum(playoff)) %>% 
+            Nat_champ = sum(natl_champ)) %>% 
   as.data.frame() %>% 
   arrange(-Avg.rec)
 
@@ -117,9 +81,10 @@ avgs[,2:6] <- avgs[,2:6] %>%
   round(., 1)
 
 
-ggthemr(palette = 'fresh')
 
-#+ plot, echo=F
+
+
+# Recruiting plot
 ggplot(data = avgs, aes(x=Avg.rec, y=Avg.W))+
   geom_point()+
   xlab('Average recruiting score \n(247 Composite)')+
@@ -143,12 +108,11 @@ ggplot(data = avgs, aes(x=Avg.rec, y=Avg.W))+
 ggthemr_reset()
 
 
-#+ table1, echo=F
-# Table of results
-knitr::kable(avgs)
+# Table of recruiting results by team
+rec_by_team_table <- kable(avgs)
 
 
-#+ dataprep2, echo=F
+
 # Generate a table that shows the title game winner/loser 
 # Calculate average recruiting class/rank over 4 years leading up to title game
 title <- filter(cfb, title_game == 1) %>% 
@@ -183,28 +147,77 @@ final$Difference <- final$Avg.rec - final$Avg.rec.1
 
 
 # Championship game table
-knitr::kable(final)
+champ_game_table <- kable(final)
 
-mean(final$Avg.rank)
-mean(final$Avg.rank.1)
 
-mean(final$Avg.rec)
-mean(final$Avg.rec.1)
+
+# Average rank and recruting score of winners/losers
+champ_avg_rank <- mean(final$Avg.rank)
+runnerup_avg_rank <- mean(final$Avg.rank.1)
+
+champ_avg_rec <- mean(final$Avg.rec)
+runnerup_avg_rec <- mean(final$Avg.rec.1)
+
 
 
 # 2018 teams that fit averages for title game participants
-filter(rec, Year %in% 2015:2018) %>% 
+contenders_2018_table <- filter(rec, Year %in% 2015:2018) %>% 
   group_by(Team) %>% 
   summarise(Avg.rec = round(mean(value),1),
             Avg.rank = round(mean(rank),1)) %>% 
   arrange(-Avg.rec) %>% 
   filter(Avg.rec > 260 & Avg.rank < 11 ) %>% 
-  knitr::kable()
+  kable()
 
 
-#+ post-entry, include=F
-# source('~/Desktop/My files/blog/rberger997.github.io/src/convert-R-to-post.R')
-# Post.to.blog('2018-07-30-cfb-project.R')
+#+ Outline, include=F
+# Outline of this post:
+# Question: How much does recruting matter in college football?
+# - Plot of Wins vs recruiting score 
+#   - Shows that recruiting leads to winning
+# - Table of postseason results
+#   - Shows that results come from elite recruiting
+# - Table of champions/runner ups (narrow down on champions)
+#   - Shows that to make the title game takes elite recruting
+# - Table of 2018 teams
+#   - Show the teams that fit the title game profile of last 10 years
+
+
+
+
+#+ writeup
+
+#' With the start of a new college football season just a few weeks away, I've been thinking about a question I've heard for many years in one form or another: how much does recruiting matter? Recently there's been a lot of attention paid to football recruiting on TV, websites, blogs, message boards, and social media but is it really important? Does grabbing the headlines on signing day in February lead to a team taking home the hardware in December and January? 
+#' 
+#' 
+#' The short answer to these questions is yes, recruiting is important for team success on a national level, but I want to go a step further and investigate the data to see its effects. Using recruiting data and team records from the last ten years, let's take a look at how much recruiting matters.
+#' <br><br>
+#' 
+#' ## The data
+#' When it comes to the best recruiting data for college football, there is no substitute for [247Sports](https://247sports.com/Season/2019-Football/CompositeTeamRankings/). Their rating system generates composite player ratings for roughly 4000 high school football players every year and creates team ratings using a weighted Gaussian distribution formula of the individual player composites. I've compiled the team class ratings for the last 10 years and will use these to quantify the recruiting talent brought in by each team.
+#'
+#'
+#' I've also gathered the win/loss data for each team over the last decade by web scraping the [football outsiders](https://www.footballoutsiders.com/stats/ncaa) advanced NCAA stats page from 2008 to 2017. (For the source file click [here](**insert_github_link**)).
+#' 
+#' 
+#' 
+#' ## Test headline
+
+#+ plot1, echo=F
+#ggthemr(palette = 'fresh')
+
+
+
+data(mtcars)
+plot(mtcars$hp ~ mtcars$wt)
+
+
+#+ table1, echo=F
+rec_by_team_table
+
+
+
+
 
 
 

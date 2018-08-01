@@ -5,14 +5,16 @@
 #
 # Instructions:
 # 1. Save this script and update myjekyllsite, postdir, and imagedir
-# 2. While in the project directory,  source this script
-# 4. Run Post.to.blog('file-i-want-to-post.R')
-# 5. Push changes to github
-# 6. Check blog to make sure it posted
+# 2. Move to directory of the script you'd like to post
+# 3. Source this script
+# 4. Pick a name for the project (new folders will be named this on blog source)
+# 5. Run Post.to.blog('file-i-want-to-post.R', projectid = 'name_of_proj')
+# 6. Push changes to github
+# 7. Check blog to make sure it posted
 #------------------
 
 
-Post.to.blog <- function(input, base.url = myjekyllsite) {
+Post.to.blog <- function(input, base.url = myjekyllsite, projectid) {
   #-------------
   ## CHANGE THIS TO YOUR SITE URL ##
   myjekyllsite <-  c('https://rberger997.github.io/')
@@ -26,7 +28,7 @@ Post.to.blog <- function(input, base.url = myjekyllsite) {
   require(knitr)
   spin(input, knit = T, format = 'Rmd', report = F)
   opts_knit$set(base.url = base.url)
-  fig.path <- paste0("img/",sub(".R$", "",basename(input)), "/")
+  fig.path <- paste0("img/",projectid, "/")
   opts_chunk$set(fig.path = fig.path)
   opts_chunk$set(fig.cap = "center")
   render_jekyll()
@@ -40,16 +42,16 @@ Post.to.blog <- function(input, base.url = myjekyllsite) {
   # Make copy of markdown file in '_posts' folder of blog directory
   file.copy(paste0(input,'.md'), postdir, recursive = T, overwrite = T)
   # Make copy of img folder and move to 'img' folder of blog directory
-  newimg <- paste0(imagedir,input, '/')
+  newimg <- paste0(imagedir,projectid, '/')
   dir.create(path = newimg)
-  imgfiles <- list.files(path = paste0('img/',input), full.names = T)
+  imgfiles <- list.files(path = paste0('img/',projectid,'/'), full.names = T)
   file.copy(imgfiles, newimg, recursive = T, overwrite = T)
   # Delete files created in wd for posting (.md, .txt, img/)
   file.remove(paste0(input, '.md'))
   unlink('img/', recursive = T)
   
   ## Create copy of .R file in posts-source-files folder
-  newsource <- paste0(sourcedir, input)
+  newsource <- paste0(sourcedir, projectid)
   dir.create(path = newsource)
   file.copy(paste0(input, '.R'), newsource, recursive = T, overwrite = T)
   
