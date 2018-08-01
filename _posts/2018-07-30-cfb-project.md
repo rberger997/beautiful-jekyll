@@ -31,37 +31,7 @@ I've also gathered the win/loss data for each team over the last decade by web s
 
 
 
-{% highlight text %}
-## 
-## FALSE  TRUE 
-##  9433    17
-{% endhighlight %}
-
-{% highlight r %}
-ggplot(data = avgs, aes(x=Avg.rec, y=Avg.W))+
-  geom_point()+
-  xlab('Average recruiting score \n(247 Composite)')+
-  ylab('Average wins per season')+
-  labs(title = 'NCAA Football Wins vs Recruting Score',
-       subtitle = '2008-2017')+
-  geom_smooth(method = 'lm', col ='red')+
-  geom_text_repel(data = subset(avgs, Avg.W >= 10), aes(label = Team))+
-  stat_poly_eq(formula = avgs$Avg.W ~ avgs$Avg.rec, 
-               aes(label = paste(..eq.label.., 
-                                 ..rr.label.., 
-                                 sep = "~~~")), parse = TRUE,
-               label.x = 275,
-               label.y = 2.5)
-{% endhighlight %}
-
 ![center](https://rberger997.github.io/img/2018-07-30-cfb-project/plot-1.png)
-
-{% highlight r %}
-# library(plotly)
-# ggplotly(p=ggplot2::last_plot(), originalData = T, dynamicTicks = F)
-
-ggthemr_reset()
-{% endhighlight %}
 
 |Team                  | Avg.rec| Avg.rec_rank| Avg.W| Avg.L| Nat_champ| title_games| playoff_apps|
 |:---------------------|-------:|------------:|-----:|-----:|---------:|-----------:|------------:|

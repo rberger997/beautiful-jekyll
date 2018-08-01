@@ -89,7 +89,7 @@ wl <- select(sp, c(Team, W, L,Year))
 cfb <- inner_join(rec, wl, by = Cs(Team, Year))
 
 # Check for missing data
-table(is.na(cfb))
+# table(is.na(cfb))
 # Remove missing data
 cfb <- cfb[complete.cases(cfb),]
 # Join with postseason data
@@ -119,7 +119,7 @@ avgs[,2:6] <- avgs[,2:6] %>%
 
 ggthemr(palette = 'fresh')
 
-#+ plot, fig.width=6
+#+ plot, fig.width=12, fig.height=8, echo=F
 ggplot(data = avgs, aes(x=Avg.rec, y=Avg.W))+
   geom_point()+
   xlab('Average recruiting score \n(247 Composite)')+
