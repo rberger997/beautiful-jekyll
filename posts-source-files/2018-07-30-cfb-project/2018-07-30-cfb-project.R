@@ -1,7 +1,6 @@
 #'---
 #' layout: post
 #' title: "Signing of the stars - How much does recruiting matter in college football?"
-#' subtitle:"A data exploration"
 #' author: "Ryan Berger"
 #' date: "`r Sys.Date()`"
 #' output: 
@@ -60,11 +59,11 @@ library(knitr)
 
 
 
-#+ load_data, echo=F
+#+ load_data, echo=T
 # Load recruiting data and SP+ dataset
-rec <- read.csv(file = 'data/recruiting_data_long.csv') %>% 
+rec <- read.csv(file = '../data/recruiting_data_long.csv') %>% 
   select(-X)
-sp <- read.csv(file = 'data/sp_data.csv')
+sp <- read.csv(file = '../data/sp_data.csv')
 
 
 # Add class rank to recruiting data
@@ -80,7 +79,7 @@ rec <- newrec
 
 
 # Load postseason data
-post <- read.csv(file = 'data/cfb_postseason.csv')
+post <- read.csv(file = '../data/cfb_postseason.csv')
 
 # Get win/loss data from SP+ data
 wl <- select(sp, c(Team, W, L,Year)) 

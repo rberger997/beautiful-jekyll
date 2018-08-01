@@ -6,7 +6,6 @@
 # Instructions:
 # 1. Save this script and update myjekyllsite, postdir, and imagedir
 # 2. While in the project directory,  source this script
-# 3. Run KnitPost('file-i-want-to-post.R')
 # 4. Run Post.to.blog('file-i-want-to-post.R')
 # 5. Push changes to github
 # 6. Check blog to make sure it posted
