@@ -15,7 +15,8 @@ preserve_yaml: true
 
 
 With the start of a new college football season just a few weeks away, I've been thinking about a question I've heard for many years in one form or another: how much does recruiting matter? Recently there's been a lot of attention paid to football recruiting on TV, websites, blogs, message boards, and social media but is it really important? Does grabbing the headlines on signing day in February lead to a team taking home the hardware in December and January? 
-<br><br>
+
+
 The short answer to these questions is yes, recruiting is important for team success on a national level, but I want to go a step further and investigate the data to quantify its effects. Using recruiting data and team records from the last ten years, let's take a look at how much recruiting matters.
 <br><br>
 
@@ -23,17 +24,10 @@ The short answer to these questions is yes, recruiting is important for team suc
 When it comes to the best recruiting data for college football, there is no substitute for [247Sports](https://247sports.com/Season/2019-Football/CompositeTeamRankings/). Their rating system generates composite player ratings for roughly 4000 high school football players every year and creates team ratings using a weighted Gaussian distribution formula of the individual player composites. I've compiled the team class ratings for the last 10 years and will use these to quantify the recruiting talent brought in by each team.
 
 
-I've also gathered the win/loss data for each team over the last decade by web scraping the [football outsiders advanced NCAA stats page](https://www.footballoutsiders.com/stats/ncaa) (source file [here](**insert_github_link**).
+I've also gathered the win/loss data for each team over the last decade by web scraping the [football outsiders](https://www.footballoutsiders.com/stats/ncaa) advanced NCAA stats page from 2008 to 2017. (For the source file click [here](**insert_github_link**)).
 
 
 
-
-
-
-{% highlight text %}
-## Warning: Column `Team` joining factors with different levels, coercing to
-## character vector
-{% endhighlight %}
 
 
 
@@ -43,21 +37,31 @@ I've also gathered the win/loss data for each team over the last decade by web s
 ##  9433    17
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## Warning: Column `Team` joining character vector and factor, coercing into
-## character vector
+{% highlight r %}
+ggplot(data = avgs, aes(x=Avg.rec, y=Avg.W))+
+  geom_point()+
+  xlab('Average recruiting score \n(247 Composite)')+
+  ylab('Average wins per season')+
+  labs(title = 'NCAA Football Wins vs Recruting Score',
+       subtitle = '2008-2017')+
+  geom_smooth(method = 'lm', col ='red')+
+  geom_text_repel(data = subset(avgs, Avg.W >= 10), aes(label = Team))+
+  stat_poly_eq(formula = avgs$Avg.W ~ avgs$Avg.rec, 
+               aes(label = paste(..eq.label.., 
+                                 ..rr.label.., 
+                                 sep = "~~~")), parse = TRUE,
+               label.x = 275,
+               label.y = 2.5)
 {% endhighlight %}
 
+![center](https://rberger997.github.io/img/2018-07-30-cfb-project/plot-1.png)
 
+{% highlight r %}
+# library(plotly)
+# ggplotly(p=ggplot2::last_plot(), originalData = T, dynamicTicks = F)
 
-{% highlight text %}
-## Warning: New theme missing the following elements: panel.grid, plot.tag,
-## plot.tag.position
+ggthemr_reset()
 {% endhighlight %}
-
-![center](https://rberger997.github.io/img/2018-07-30-cfb-project/load_data-1.png)
 
 |Team                  | Avg.rec| Avg.rec_rank| Avg.W| Avg.L| Nat_champ| title_games| playoff_apps|
 |:---------------------|-------:|------------:|-----:|-----:|---------:|-----------:|------------:|

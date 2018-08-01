@@ -30,7 +30,8 @@
 
 #' 
 #' With the start of a new college football season just a few weeks away, I've been thinking about a question I've heard for many years in one form or another: how much does recruiting matter? Recently there's been a lot of attention paid to football recruiting on TV, websites, blogs, message boards, and social media but is it really important? Does grabbing the headlines on signing day in February lead to a team taking home the hardware in December and January? 
-#' <br><br>
+#' 
+#' 
 #' The short answer to these questions is yes, recruiting is important for team success on a national level, but I want to go a step further and investigate the data to quantify its effects. Using recruiting data and team records from the last ten years, let's take a look at how much recruiting matters.
 #' <br><br>
 #' 
@@ -38,7 +39,7 @@
 #' When it comes to the best recruiting data for college football, there is no substitute for [247Sports](https://247sports.com/Season/2019-Football/CompositeTeamRankings/). Their rating system generates composite player ratings for roughly 4000 high school football players every year and creates team ratings using a weighted Gaussian distribution formula of the individual player composites. I've compiled the team class ratings for the last 10 years and will use these to quantify the recruiting talent brought in by each team.
 #'
 #'
-#' I've also gathered the win/loss data for each team over the last decade by web scraping the [football outsiders advanced NCAA stats page](https://www.footballoutsiders.com/stats/ncaa) (source file [here](**insert_github_link**).
+#' I've also gathered the win/loss data for each team over the last decade by web scraping the [football outsiders](https://www.footballoutsiders.com/stats/ncaa) advanced NCAA stats page from 2008 to 2017. (For the source file click [here](**insert_github_link**)).
 #' 
 #' 
 #' 
@@ -59,7 +60,7 @@ library(knitr)
 
 
 
-#+ load_data, echo=F
+#+ load_data, echo=F, message=F, warning=F
 # Load recruiting data and SP+ dataset
 rec <- read.csv(file = '../data/recruiting_data_long.csv') %>% 
   select(-X)
@@ -118,7 +119,7 @@ avgs[,2:6] <- avgs[,2:6] %>%
 
 ggthemr(palette = 'fresh')
 
-
+#+ plot, fig.width=6
 ggplot(data = avgs, aes(x=Avg.rec, y=Avg.W))+
   geom_point()+
   xlab('Average recruiting score \n(247 Composite)')+
