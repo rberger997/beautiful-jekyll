@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Signing of the stars - How much does recruiting matter in college football?"
-subtitle:"A data exploration"
 author: "Ryan Berger"
 date: "2018-07-31"
 output: 
