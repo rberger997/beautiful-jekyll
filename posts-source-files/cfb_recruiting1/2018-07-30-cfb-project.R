@@ -12,7 +12,7 @@
 #' ---
 
 
-#+ libraries, echo=F
+#+ libraries, echo=F, message=F, warning=F
 library(dplyr)
 library(ggplot2)
 library(ggpmisc)
@@ -85,7 +85,7 @@ avgs[,2:6] <- avgs[,2:6] %>%
 
 
 # Recruiting plot
-ggplot(data = avgs, aes(x=Avg.rec, y=Avg.W))+
+rec_plot <- ggplot(data = avgs, aes(x=Avg.rec, y=Avg.W))+
   geom_point()+
   xlab('Average recruiting score \n(247 Composite)')+
   ylab('Average wins per season')+
@@ -205,7 +205,7 @@ contenders_2018_table <- filter(rec, Year %in% 2015:2018) %>%
 
 #+ plot1, echo=F
 #ggthemr(palette = 'fresh')
-
+rec_plot
 
 
 data(mtcars)
