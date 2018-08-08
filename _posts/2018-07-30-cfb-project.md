@@ -3,6 +3,7 @@ layout: post
 title: "Signing of the stars: how much does recruiting matter in college football?"
 author: "Ryan Berger"
 date: "2018-08-08"
+bigimg: /img/uga.JPG
 output: 
   html_document:
     theme: spacelab	
