@@ -208,7 +208,7 @@ hist(rec$value,
 #'
 #'
 #' ### Wins
-#' Since football is above all a win/loss business, it seemed like a natural choice to use wins per year as the metric for team success. This doesn't take into account strength of schedule differences between teams or Power 5 conferences vs. Group of 5 conferences but should be sufficient for a first look. I gathered the win/loss data for each team from 2008 to 2017 by writing a [script](link) to scrape the data from [football outsiders](https://www.footballoutsiders.com/stats/ncaa). The distribution of annual win totals is as follows:
+#' Since football is above all a win/loss business, it seemed like a natural choice to use wins per year as the metric for team success. This doesn't take into account strength of schedule differences between teams or Power 5 conferences vs. Group of 5 conferences but should be sufficient for a first look. I gathered the win/loss data for each team from 2008 to 2017 by writing a [script](https://github.com/rberger997/rberger997.github.io/blob/master/posts-source-files/2018-07-30-cfb-project/web_scrape_sp_data.R) to scrape the data from [football outsiders](https://www.footballoutsiders.com/stats/ncaa). The distribution of annual win totals is as follows:
 
 #+ Wins_histogram, echo=F
 wins_hist <- hist(sp$W,
@@ -239,7 +239,7 @@ rec_by_team_table
 #+ plot1, echo=F
 rec_plot
 
-#'<br><br>
+#'<br>
 #' From the plot we can clearly see the trend we observed in the table: there is a positive linear relationship that supports the idea that better recruiting leads to more wins (as we would expect). Additionally, by using a linear model we can quantify the effect that recruiting has on winning over the course of 10 seasons: the coefficient of determination (${R^2}$) is 0.38, meaning that recruiting accounts for 38% of the variance in win totals. When you consider the number of factors that determine the outcome of a football season (coaching, strategy, injuries, etc.), 38% seems like a significant amount of influence. At the same time, it tells us that recruiting isn't everything; there is still a lot of work to be done off the recruiting trail to be successful.
 #'
 #'
@@ -256,7 +256,7 @@ rec_plot
 champ_game_table
 
 
-#' Focusing on the title game shows just how important recruiting is in bringing home a national championship; in the last 10 years, the team with the higher recruiting average has won 8 of 10 titles. Additionally, only two teams won a championship with an average class rating under 250 -- 2009 Alabama and 2010 Auburn. For these two teams it's notable to point out that (1) both had the Heisman trophy winner on their team (Mark Ingram, Cam Newton) and (2) both got a bit lucky with regards to their title game opponent -- Texas QB and Heisman finalist Colt McCoy got injured on the first drive against Alabama and the 2010 Oregon team that faced Auburn took the field with by far the lowest recruiting class average (206.7) of any championship game participant over the last 10 years. The overall message is clear: to win a national championship you need elite recruiting classes or else you'll *really* need some things to go your way.
+#' Focusing on the title game shows just how important recruiting is in bringing home a national championship; in the last 10 years, the team with the higher recruiting average has won 8 of 10 titles. Additionally, only two teams won a championship with an average class rating under 250 -- 2009 Alabama and 2010 Auburn. For these two teams it's notable to point out that (1) both had the Heisman trophy winner on their team (Mark Ingram, Cam Newton) and (2) both got a bit lucky with regards to their title game opponent -- Texas QB and Heisman finalist Colt McCoy got injured on the first drive against Alabama and the 2010 Oregon team that faced Auburn took the field with by far the lowest recruiting class average (206.7) of any championship game participant over the last 10 years. The overall message is clear: to win a national championship you need elite recruiting classes or you *really* need some things to go your way.
 #' 
 #' 
 #' ## Looking ahead: championship contenders for 2018
@@ -275,7 +275,7 @@ champ_game_table
 #+ contenders, echo=F
 contenders_2018_table
 
-#' <br><br>
+#' <br>
 #' Out of 129 division I teams, only 8 have the general makeup of a champion for this year. Alabama once again leads the way with the highest recruiting average, but the margin is very close between the Tide, Ohio State, and Georgia in the top three. 
 #' 
 #' This recruiting profile is by no means a predictive model but it still tends to agree with the general consensus on who the top contenders are for this season. As of this writing, the Vegas odds for these teams to win the championship are:
@@ -296,19 +296,19 @@ contenders_2018_table
 #' ## Final Thoughts
 #' The takeaway points from this analysis should be as follows:
 #' 
-#' * In general, better recruiting leads to more wins.
-#' * Mid-level recruiting leads to large variations in win totals.
-#' * Recruiting success is critical in winning national championships 
-#'     + To contend for championships, you generally need top 10 recruiting classes.
-#'     + To win championsips, you generally need top 6 recruiting classes.
+#' * **In general, better recruiting leads to more wins.**
+#' * **Mid-level recruiting leads to mixed results with regards to win totals.**
+#' * **Recruiting success is critical in competing for national championships** 
+#'     + **To contend for championships, you generally need top 10 recruiting classes.**
+#'     + **To win championsips, you generally need top 6 recruiting classes.**
 #'     
 #'
-#' An important thing to keep in mind is that these results are based on a relatively small sample size (10 seasons) and by nature ignore a lot of important factors that are involved in team success.
+#' An important thing to keep in mind is that these results are based on a relatively small sample size (10 seasons) and ignore a lot of important factors that are involved in team success.
 #' 
 #' Also, while the recruting profiles give insight into what a champion contender typically looks like, I like to think of them as more of a tool to set expectations rather than make predictions. In this mindset, fans of all eight teams identified as championship contenders should *expect* to be in the running for a title while fans of teams outside that list would be *very lucky* to see their team win a title. This idea of expectations based on recruiting is something I'll address further in a future post.
 #' 
 #' 
-#' **This post was written in R. To see the full source, click [here](link)**
+#' **This post was written in R. To see the full source, click [here](https://github.com/rberger997/rberger997.github.io/blob/master/posts-source-files/2018-07-30-cfb-project/2018-07-30-cfb-project.R)**
 
 
 
