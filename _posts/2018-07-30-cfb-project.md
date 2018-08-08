@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Signing of the stars - How much does recruiting matter in college football?"
+title: "Signing of the stars: how much does recruiting matter in college football?"
 author: "Ryan Berger"
 date: "2018-08-08"
 output: 
@@ -28,7 +28,7 @@ When it comes to the best recruiting data for college football, there is no subs
 
 ![center](https://rberger997.github.io/img/2018-07-30-cfb-project/rec_hist-1.png)
 
-The recruiting class ratings look like a normal distribution (slightly right-skewed) with the center around 150. For the analysis, I've calculated the average class ratings for all division I teams for the last 10 years and will use these to quantify the amount of talent potential that each team has brought in.
+The recruiting class ratings look like a normal Gaussian distribution (slightly right-skewed) with the center around 150. For the analysis, I've calculated the average class ratings for all division I teams for the last 10 years and will use these to quantify the amount of talent potential that each team has brought in.
 
 
 ### Wins
@@ -39,7 +39,7 @@ Since football is above all a win/loss business, it seemed like a natural choice
 <br><br>
 
 
-## Average recruiting by NCAA teams (2008-2017)
+## Average recruiting by NCAA division I schools (2008-2017)
 
 
 |Team                  | Avg.rec| Avg.rec_rank| Avg.W| Avg.L| playoff_apps| title_games| Nat_champ|
@@ -176,8 +176,10 @@ Since football is above all a win/loss business, it seemed like a natural choice
 
 Looking at the table, it's pretty clear that the schools with higher recruiting class averages at the top of the table have a lot more success than those further down. Alabama is the clear leader in both recruiting and wins as they averaged 12.5(!) wins per year on an average recruiting rating of 303.7. This has led to a decade of dominance as the Crimson Tide have appeared in all four College Football Playoffs, six national championship games, and have taken home the trophy as national champs five times.
 
+Additionally, 11 of the top 12 teams in recruiting average have played in at least one championship game during this time. The one exception, USC, has been in a coaching carousel for several years as a result of its failure to meet these expectations.
 
-Looking at the table more broadly, the average wins per year typically decreases as you move down. We can see this by looking at the average annual win totals for descending groups of 25 schools:
+
+Looking more broadly, the average wins per year typically decreases as you move down the table. We can see this by looking at the average annual win totals for descending groups of 25 schools:
 
 * 1-25: 8.72
 * 26-50: 7.3 
@@ -190,14 +192,14 @@ This trend suggests there's a linear relationship between wins and recruiting. W
 ![center](https://rberger997.github.io/img/2018-07-30-cfb-project/plot1-1.png)
 
 <br>
-From the plot we can clearly see the trend we observed in the table: there is a positive linear relationship that supports the idea that better recruiting leads to more wins (as we would expect). Additionally, by using a linear model we can quantify the effect that recruiting has on winning over the course of 10 seasons: the coefficient of determination (${R^2}$) is 0.38, meaning that recruiting accounts for 38% of the variance in win totals. When you consider the number of factors that determine the outcome of a football season (coaching, strategy, injuries, etc.), 38% seems like a significant amount of influence. At the same time, it tells us that recruiting isn't everything; there is still a lot of work to be done off the recruiting trail to be successful.
+From the plot we can clearly see the trend we observed in the table: there is a positive linear relationship that supports the idea that better recruiting leads to more wins (as we would expect). Additionally, by using a linear model we can quantify the effect that recruiting has on winning over the course of 10 seasons: the coefficient of determination (${R^2}$) is 0.38, meaning that recruiting accounts for 38% of the variance in win totals. When you consider the number of factors that determine the outcomes of 10 football seasons (coaching, strategy, injuries, etc.), 38% seems like a significant amount of influence. At the same time, it tells us that recruiting isn't everything; there is still a lot of work to be done off the recruiting trail to be successful.
 
 
-It also appears from the plot that for schools with recruiting scores under 250, and especially those under 200, there is a lot of variability in win totals. In this range, there is a lot of scatter above and below the trendline and teams with very similar recruiting profiles can have drastically different win totals. Take for example Wisconsin, Arizona, and Virginia. All three schools have averaged a 247 recruiting score of 186 with the Badgers averaging 10 wins per year, Arizona 7, and UVA 4.3. These differences illustrate how mid-level recruiting can lead to variable on field results and hints toward the importance of coaching and player development in building a strong team and winning games.
+It also appears from the plot that for schools with recruiting scores under 250, and especially those under 200, there is a lot of variability in win totals. In this range, there is a lot of scatter above and below the trendline and teams with very similar recruiting profiles have generated drastically different win totals. Take for example Wisconsin, Arizona, and Virginia. All three schools have averaged a 247Sports recruiting score of 186 with the Badgers averaging 10 wins per year, Arizona 7, and UVA 4.3. These differences illustrate how mid-level recruiting can lead to variable on field results and hints toward the importance of coaching and player development for teams that don't have top-end athletes.
 
 
-## Elite teams come from elite recruiting
-While the middle class of recruiting offers mixed results, there is one thing that is very clear from the data: the very best teams in college football are built on a foundation of elite recruting. Looking at the plot, schools that average recruiting classes above 250 on the 247 composite score are typically the ones that win national championships. This is the recruiting range where perennial powers Alabama, Ohio State, Florida State, and Oklahoma typically reside.
+## Elite teams are built from elite recruits
+While the middle class of recruiting offers mixed results, there is one thing that is very clear from the data: the very best teams in college football are built on a foundation of elite recruting. Looking at the plot, schools that average recruiting classes above 250 on the 247Sports composite score are the ones that win national championships. This is the recruiting range where perennial powers Alabama, Ohio State, Florida State, and Oklahoma typically reside.
 
 
 We can take this a step further and focus in on all the teams that have made it to the championship game but instead of looking at their 10 year averages, let's look at how well they recruited in the four years leading up to that championship game appearance. We can then use this data to build a recruiting profile of what championship caliber teams generally look like to assess current and future teams.
@@ -216,11 +218,11 @@ We can take this a step further and focus in on all the teams that have made it 
 | 2016|Clemson       |   257.0|     13.4|Alabama    |     311.9|        1.0|      -54.9|
 | 2017|Alabama       |   314.4|      1.0|Georgia    |     279.0|        7.2|       35.4|
 
-Focusing on the title game shows just how important recruiting is in bringing home a national championship; in the last 10 years, the team with the higher recruiting average has won 8 of 10 titles. Additionally, only two teams won a championship with an average class rating under 250 -- 2009 Alabama and 2010 Auburn. For these two teams it's notable to point out that (1) both had the Heisman trophy winner on their team (Mark Ingram, Cam Newton) and (2) both got a bit lucky with regards to their title game opponent -- Texas QB and Heisman finalist Colt McCoy got injured on the first drive against Alabama and the 2010 Oregon team that faced Auburn took the field with by far the lowest recruiting class average (206.7) of any championship game participant over the last 10 years. The overall message is clear: to win a national championship you need elite recruiting classes or you *really* need some things to go your way.
+Focusing on the title game shows just how important recruiting is in bringing home a title; in the last ten championship games, the team with the higher recruiting average has won *8 of 10 times*. Additionally, only two teams won a championship with an average class rating under 250 -- 2009 Alabama and 2010 Auburn. For these two teams it's notable to point out that (1) both had the Heisman trophy winner on their team (Mark Ingram, Cam Newton) and (2) both got a bit lucky with regards to their title game opponent -- Texas QB and Heisman finalist Colt McCoy got injured on the first drive against Alabama and the 2010 Oregon team that faced Auburn took the field with by far the lowest recruiting class average (206.7) of any championship game participant over the last 10 years. The overall message is clear: to win a national championship you need elite recruiting classes or you *really* need some things to go your way.
 
 
 ## Looking ahead: championship contenders for 2018
-So far this analysis has been looking back at results from the last 10 years but what do these data tell us about the upcoming season? Specifically, which teams have the recruiting profile to make the championship game or win it? To adress these questions let's use the data in the table to define what a champion and runner-up typically looks like over the 4 years leading up to their title run: 
+So far we've been looking back at results from the last 10 years but what do these data tell us about the upcoming season? Specifically, which teams have the recruiting profile to make the championship game or win it? To adress these questions let's use the data from title game participants to define what a champion and runner-up typically looks like over the 4 years leading up to their title run: 
 
 * Champion:
     + Avg recruiting class score: **276.42**
@@ -229,7 +231,7 @@ So far this analysis has been looking back at results from the last 10 years but
     + Avg recruiting class score: **260.34**
     + Avg national class rank: **10.72**
     
-Past results tell us that a team needs to have a four year recruiting average of 260 to make the championship game and 275 to win it. Looking ahead to the 2018 season, let's see which teams are national title contenders by these criteria.
+Past results tell us that a team typically needs to have a four year recruiting average of 260 to make the championship game and 275 to win it. Looking ahead to the 2018 season, let's see which teams are national title contenders by these criteria.
 
 
 
@@ -246,7 +248,7 @@ Past results tell us that a team needs to have a four year recruiting average of
 |Clemson       |   267.7|     10.8|
 
 <br>
-Out of 129 division I teams, only 8 have the general makeup of a champion for this year. Alabama once again leads the way with the highest recruiting average, but the margin is very close between the Tide, Ohio State, and Georgia in the top three. 
+Out of 129 division I teams, only 8 have the general recruiting profile of a champion for this year. Alabama once again leads the way with the highest recruiting average, but the margin is very close between the Tide, Ohio State, and Georgia in the top three. 
 
 This recruiting profile is by no means a predictive model but it still tends to agree with the general consensus on who the top contenders are for this season. As of this writing, the Vegas odds for these teams to win the championship are:
 
@@ -259,7 +261,7 @@ This recruiting profile is by no means a predictive model but it still tends to 
  * USC 66-1
  * LSU 66-1
 
-(Gamblers note: Judging from their odds and recruiting profiles, it looks like Auburn, Florida State, USC, and LSU are good value bets for 2018.)
+(Gamblers note: Judging strictly from their odds and recruiting profiles, it looks like Auburn, Florida State, USC, and LSU are good value bets for 2018.)
 
 
 
@@ -268,16 +270,16 @@ The takeaway points from this analysis should be as follows:
 
 * **In general, better recruiting leads to more wins.**
 * **Mid-level recruiting leads to mixed results with regards to win totals.**
-* **Recruiting success is critical in competing for national championships** 
-    + **To contend for championships, you generally need top 10 recruiting classes.**
-    + **To win championsips, you generally need top 6 recruiting classes.**
+* **Elite recruiting is critical in competing for national championships.** 
+    + **To contend for championships, you generally need four years of top 10 recruiting classes.**
+    + **To win championsips, you generally need four years of top 6 recruiting classes.**
     
 
 An important thing to keep in mind is that these results are based on a relatively small sample size (10 seasons) and ignore a lot of important factors that are involved in team success.
 
-Also, while the recruting profiles give insight into what a champion contender typically looks like, I like to think of them as more of a tool to set expectations rather than make predictions. In this mindset, fans of all eight teams identified as championship contenders should *expect* to be in the running for a title while fans of teams outside that list would be *very lucky* to see their team win a title. This idea of expectations based on recruiting is something I'll address further in a future post.
+Also, while the recruting profiles give insight into what a champion contender typically looks like, I like to think of them as more of a tool to set expectations rather than make predictions. In this mindset, fans of all eight teams identified as championship contenders should *expect* to make a run at the title while fans of teams outside that list would be *very lucky* to see their team make the championship game. This idea of expectations based on recruiting is something I'll address further in a future post.
 
-
+<br> 
 **This post was written in R. To see the full source, click [here](https://github.com/rberger997/rberger997.github.io/blob/master/posts-source-files/2018-07-30-cfb-project/2018-07-30-cfb-project.R)**
 
 
