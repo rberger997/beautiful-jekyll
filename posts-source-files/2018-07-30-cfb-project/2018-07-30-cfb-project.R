@@ -218,7 +218,7 @@ wins_hist <- hist(sp$W,
                   xlab = 'Wins')
 
 #' <br><br>
-#' #' Putting these datasets together, let's look at the average recruiting class rating and wins per year for all 129 teams in division I football.
+#' Putting these datasets together, let's look at the average recruiting class rating and wins per year for all 129 teams in division I football.
 #' 
 #' ## Average recruiting by NCAA division I schools (2008-2017)
 #+ table1, echo=F
