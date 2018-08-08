@@ -37,7 +37,7 @@ Since football is above all a win/loss business, it seemed like a natural choice
 ![center](https://rberger997.github.io/img/2018-07-30-cfb-project/Wins_histogram-1.png)
 
 <br><br>
-
+#' Putting these datasets together, let's look at the average recruiting class rating and wins per year for all 129 teams in division I football.
 
 ## Average recruiting by NCAA division I schools (2008-2017)
 
