@@ -2,7 +2,8 @@
 #' layout: post
 #' title: "Signing of the stars: how much does recruiting matter in college football?"
 #' author: "Ryan Berger"
-#' date: "`r Sys.Date()`"
+#' date: "2018-08-08"
+#' bigimg: /img/uga.JPG
 #' output: 
 #'   html_document:
 #'     theme: spacelab	
@@ -94,7 +95,6 @@ rec_plot <- ggplot(data = avgs, aes(x=Avg.rec, y=Avg.W))+
        subtitle = '2008-2017')+
   geom_smooth(method = 'lm', col ='red')+
   geom_text_repel(data = subset(avgs, Avg.W >= 10), aes(label = Team), size=5)+
-  geom_text(data = subset(avgs, Team %in% c('Virginia', 'Arizona')), aes(label = Team), size=5)+
   stat_poly_eq(formula = avgs$Avg.W ~ avgs$Avg.rec, 
                aes(label = paste(..eq.label.., 
                                  ..rr.label.., 
@@ -189,7 +189,7 @@ contenders_2018_table <- filter(rec, Year %in% 2015:2018) %>%
 
 #+ writeup
 
-#' With the start of a new college football season just a few weeks away, I've been thinking about a question I've heard for many years in one form or another: how much does recruiting matter? Like it or not, football recruiting has turned into a big business that public universities are pouring millions of dollars into. Even casual fans have probably noticed that recently there's been a lot of attention paid to football recruiting on TV, websites, blogs, message boards, and social media but is it really important for on field success? Does grabbing the headlines on signing day in February lead to taking home the hardware in December and January? 
+#' With the start of a new college football season just a few weeks away, I've been thinking about a question I've heard for many years in one form or another: how much does recruiting matter? Like it or not, football recruiting has turned into a big business that public universities across the country are pouring millions of dollars into. Even casual fans have probably noticed that recently there's been a lot of attention paid to football recruiting on TV, websites, blogs, message boards, and social media but is it really important for on field success? Does grabbing the headlines on signing day in February lead to taking home the hardware in December and January? 
 #' 
 #' 
 #' The dominance of Nick Saban's Alabama teams on both the recruiting trail and the gridiron over the last decade suggests the answer to these questions is yes, but I want to go a step further and investigate the data for all 129 teams in division I to see its full effects. Using recruiting data and team records from the last ten years, let's take a look at how much recruiting matters in college football.
@@ -209,7 +209,7 @@ hist(rec$value,
 #'
 #'
 #' ### Wins
-#' Since football is above all a win/loss business, it seemed like a natural choice to use wins per year as the metric for team success. This doesn't take into account strength of schedule differences between teams or Power 5 conferences vs. Group of 5 conferences but should be sufficient for a first look. I gathered the win/loss data for each team from 2008 to 2017 by writing a [script](https://github.com/rberger997/rberger997.github.io/blob/master/posts-source-files/2018-07-30-cfb-project/web_scrape_sp_data.R) to scrape the data from [football outsiders](https://www.footballoutsiders.com/stats/ncaa). The distribution of annual win totals is as follows:
+#' Since football is above all a win/loss business, it seemed like a natural choice to use wins per year as the metric for team success. This doesn't take into account strength of schedule differences between teams or Power 5 conferences vs. Group of 5 conferences but should be sufficient for a first look. I gathered the win/loss results for each team from 2008 to 2017 by [scraping](https://github.com/rberger997/rberger997.github.io/blob/master/posts-source-files/2018-07-30-cfb-project/web_scrape_sp_data.R) the data from [football outsiders](https://www.footballoutsiders.com/stats/ncaa). The distribution of annual win totals is as follows:
 
 #+ Wins_histogram, echo=F
 wins_hist <- hist(sp$W,
@@ -243,7 +243,7 @@ rec_by_team_table
 rec_plot
 
 #'<br>
-#' From the plot we can clearly see the trend we observed in the table: there is a positive linear relationship that supports the idea that better recruiting leads to more wins (as we would expect). Additionally, by using a linear model we can quantify the effect that recruiting has on winning over the course of 10 seasons: the coefficient of determination (${R^2}$) is 0.38, meaning that recruiting accounts for 38% of the variance in win totals. When you consider the number of factors that determine the outcomes of 10 football seasons (coaching, strategy, injuries, etc.), 38% seems like a significant amount of influence. At the same time, it tells us that recruiting isn't everything; there is still a lot of work to be done off the recruiting trail to be successful.
+#' From the plot we can clearly see the trend we observed in the table: there is a positive linear relationship that supports the idea that better recruiting leads to more wins (as we would expect). Additionally, by using a linear model we can quantify the effect that recruiting has on winning over the course of 10 seasons: the coefficient of determination (R<sup>2</sup>) is 0.38, meaning that recruiting accounts for 38% of the variance in win totals. When you consider the number of factors that determine the outcomes of 10 football seasons (coaching, strategy, injuries, etc.), 38% seems like a significant amount of influence. At the same time, it tells us that recruiting isn't everything; there is still a lot of work to be done off the recruiting trail to be successful.
 #'
 #'
 #' It also appears from the plot that for schools with recruiting scores under 250, and especially those under 200, there is a lot of variability in win totals. In this range, there is a lot of scatter above and below the trendline and teams with very similar recruiting profiles have generated drastically different win totals. Take for example Wisconsin, Arizona, and Virginia. All three schools have averaged a 247Sports recruiting score of 186 with the Badgers averaging 10 wins per year, Arizona 7, and UVA 4.3. These differences illustrate how mid-level recruiting can lead to variable on field results and hints toward the importance of coaching and player development for teams that don't have top-end athletes.

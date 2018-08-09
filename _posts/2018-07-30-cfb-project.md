@@ -17,7 +17,7 @@ preserve_yaml: true
 
 
 
-With the start of a new college football season just a few weeks away, I've been thinking about a question I've heard for many years in one form or another: how much does recruiting matter? Like it or not, football recruiting has turned into a big business that public universities are pouring millions of dollars into. Even casual fans have probably noticed that recently there's been a lot of attention paid to football recruiting on TV, websites, blogs, message boards, and social media but is it really important for on field success? Does grabbing the headlines on signing day in February lead to taking home the hardware in December and January? 
+With the start of a new college football season just a few weeks away, I've been thinking about a question I've heard for many years in one form or another: how much does recruiting matter? Like it or not, football recruiting has turned into a big business that public universities across the country are pouring millions of dollars into. Even casual fans have probably noticed that recently there's been a lot of attention paid to football recruiting on TV, websites, blogs, message boards, and social media but is it really important for on field success? Does grabbing the headlines on signing day in February lead to taking home the hardware in December and January? 
 
 
 The dominance of Nick Saban's Alabama teams on both the recruiting trail and the gridiron over the last decade suggests the answer to these questions is yes, but I want to go a step further and investigate the data for all 129 teams in division I to see its full effects. Using recruiting data and team records from the last ten years, let's take a look at how much recruiting matters in college football.
@@ -33,7 +33,7 @@ The recruiting class ratings look like a normal Gaussian distribution (slightly 
 
 
 ### Wins
-Since football is above all a win/loss business, it seemed like a natural choice to use wins per year as the metric for team success. This doesn't take into account strength of schedule differences between teams or Power 5 conferences vs. Group of 5 conferences but should be sufficient for a first look. I gathered the win/loss data for each team from 2008 to 2017 by writing a [script](https://github.com/rberger997/rberger997.github.io/blob/master/posts-source-files/2018-07-30-cfb-project/web_scrape_sp_data.R) to scrape the data from [football outsiders](https://www.footballoutsiders.com/stats/ncaa). The distribution of annual win totals is as follows:
+Since football is above all a win/loss business, it seemed like a natural choice to use wins per year as the metric for team success. This doesn't take into account strength of schedule differences between teams or Power 5 conferences vs. Group of 5 conferences but should be sufficient for a first look. I gathered the win/loss results for each team from 2008 to 2017 by [scraping](https://github.com/rberger997/rberger997.github.io/blob/master/posts-source-files/2018-07-30-cfb-project/web_scrape_sp_data.R) the data from [football outsiders](https://www.footballoutsiders.com/stats/ncaa). The distribution of annual win totals is as follows:
 
 ![center](https://rberger997.github.io/img/2018-07-30-cfb-project/Wins_histogram-1.png)
 
