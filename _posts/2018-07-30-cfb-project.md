@@ -29,7 +29,7 @@ When it comes to the best recruiting data for college football, there is no subs
 
 ![center](https://rberger997.github.io/img/2018-07-30-cfb-project/rec_hist-1.png)
 
-The recruiting class ratings look like a normal Gaussian distribution (slightly right-skewed) with the center around 150. For the analysis, I've calculated the average class ratings for all division I teams for the last 10 years and will use these to quantify the amount of talent potential that each team has brought in.
+The recruiting class ratings look like a normal distribution (slightly right-skewed) with the center around 150. For the analysis, I've calculated the average class ratings for all division I teams for the last 10 years and will use these to quantify the amount of talent potential that each team has brought in.
 
 
 ### Wins
@@ -262,7 +262,7 @@ This recruiting profile is by no means a predictive model but it still tends to 
  * USC 66-1
  * LSU 66-1
 
-(Gamblers note: Judging strictly from their odds and recruiting profiles, it looks like Auburn, Florida State, USC, and LSU are good value bets for 2018.)
+(Gamblers note: judging strictly from their odds and recruiting profiles, Auburn, Florida State, USC, and LSU look like good value bets for 2018.)
 
 
 
@@ -273,7 +273,7 @@ The takeaway points from this analysis should be as follows:
 * **Mid-level recruiting leads to mixed results with regards to win totals.**
 * **Elite recruiting is critical in competing for national championships.** 
     + **To contend for championships, you generally need four years of top 10 recruiting classes.**
-    + **To win championsips, you generally need four years of top 6 recruiting classes.**
+    + **To win championships, you generally need four years of top 6 recruiting classes.**
     
 
 An important thing to keep in mind is that these results are based on a relatively small sample size (10 seasons) and ignore a lot of important factors that are involved in team success.

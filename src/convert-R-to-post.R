@@ -18,9 +18,9 @@ Post.to.blog <- function(input, base.url = myjekyllsite) {
   ## CHANGE THIS TO YOUR SITE URL ##
   myjekyllsite <-  c('https://rberger997.github.io/')
   ## CHANGE THESE DIRECTORIES TO YOUR LOCAL BLOG DIRECTORIES ##
-  postdir <- '~/Desktop/My files/blog/rberger997.github.io/_posts/'
-  imagedir <- '~/Desktop/My files/blog/rberger997.github.io/img/'
-  sourcedir <- '~/Desktop/My files/blog/rberger997.github.io/posts-source-files/'
+  postdir <- '~/Desktop/data_projects/blog/rberger997.github.io/_posts/'
+  imagedir <- '~/Desktop/data_projects/blog/rberger997.github.io/img/'
+  sourcedir <- '~/Desktop/data_projects/blog/rberger997.github.io/posts-source-files/'
   #-------------
   
   ## Spin with knitr ##

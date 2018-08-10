@@ -205,7 +205,7 @@ hist(rec$value,
      main = 'NCAA football team recruiting class ratings \n 2008-2017',
      xlab = '247Sports composite team score')
 
-#' The recruiting class ratings look like a normal Gaussian distribution (slightly right-skewed) with the center around 150. For the analysis, I've calculated the average class ratings for all division I teams for the last 10 years and will use these to quantify the amount of talent potential that each team has brought in.
+#' The recruiting class ratings look like a normal distribution (slightly right-skewed) with the center around 150. For the analysis, I've calculated the average class ratings for all division I teams for the last 10 years and will use these to quantify the amount of talent potential that each team has brought in.
 #'
 #'
 #' ### Wins
@@ -292,7 +292,7 @@ contenders_2018_table
 #'  * USC 66-1
 #'  * LSU 66-1
 #' 
-#' (Gamblers note: Judging strictly from their odds and recruiting profiles, it looks like Auburn, Florida State, USC, and LSU are good value bets for 2018.)
+#' (Gamblers note: judging strictly from their odds and recruiting profiles, Auburn, Florida State, USC, and LSU look like good value bets for 2018.)
 #' 
 #' 
 #' 
@@ -303,7 +303,7 @@ contenders_2018_table
 #' * **Mid-level recruiting leads to mixed results with regards to win totals.**
 #' * **Elite recruiting is critical in competing for national championships.** 
 #'     + **To contend for championships, you generally need four years of top 10 recruiting classes.**
-#'     + **To win championsips, you generally need four years of top 6 recruiting classes.**
+#'     + **To win championships, you generally need four years of top 6 recruiting classes.**
 #'     
 #'
 #' An important thing to keep in mind is that these results are based on a relatively small sample size (10 seasons) and ignore a lot of important factors that are involved in team success.
@@ -317,7 +317,7 @@ contenders_2018_table
 
 
 #+ post-entry, include=F
-# source('~/Desktop/My files/blog/rberger997.github.io/src/convert-R-to-post.R')
+# source('~/Desktop/data_projects/blog/rberger997.github.io/src/convert-R-to-post.R')
 # Post.to.blog('2018-07-30-cfb-project.R')
 
 # rmarkdown::render(here('src/2018-07-30-cfb-project.R'))
