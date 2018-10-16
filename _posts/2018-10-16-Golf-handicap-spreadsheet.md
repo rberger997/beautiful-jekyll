@@ -3,7 +3,7 @@ layout: post
 title: "Tracking golf handicaps using Google Sheets"
 author: "Ryan Berger"
 date: "2018-10-16"
-bigimg:
+bigimg: img/2018-10-16-golf-handicap-spreadsheet/golf_title_photo.JPG
 output: 
   html_document:
     theme: spacelab	
