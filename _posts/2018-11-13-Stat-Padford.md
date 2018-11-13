@@ -34,7 +34,7 @@ In both of these cases we would expect the trailing team to pass the ball much m
 ## Play-by-play data
 For this analysis we'll use the [detailed NFL play-by-play dataset](https://www.kaggle.com/maxhorowitz/nflplaybyplay2009to2016) compiled by Ron Yurko, Sam Ventura, and Max Horowitz of the Carnegie Mellon Sports Analytics Club. This dataset gives detailed information on over 350,000 NFL plays from 2009-2017 that we can use to filter by game situations.
 
-Filtering out the pass plays with Matthew Stafford at QB shows 4868 plays from 2009-2017. We can use the play-by-play features of this dataset to split these passing plays based on our garbage time criteria and compare how efficient Stafford is during garbage time vs non-garbage time using the NFL passer rating formula.
+Filtering out the pass plays with Matthew Stafford at QB shows 4868 plays from 2009-2017. We can use the play-by-play features of this dataset to split these passing plays based on our garbage time criteria and compare how efficient Stafford is during garbage time vs non-garbage time using the [NFL passer rating formula](https://en.wikipedia.org/wiki/Passer_rating).
 
 Looking at all passes from 2009-2017, Stafford had a passer rating of 88.2. Given this, we would expect that his passer rating is much higher in garbage time plays compared to non-garbage time if he really is stat padding. Let's see what the data says.
 
