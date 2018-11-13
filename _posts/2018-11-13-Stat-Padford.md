@@ -4,7 +4,7 @@ title: "Matt Stafford or Stat Padford?"
 subtitle: "Analysis of Lions QB play in garbage time"
 author: "Ryan Berger"
 date: "2018-11-13"
-bigimg:
+bigimg: /img/2018-11-13-Stat-Padford/lions.jpg
 output: 
   html_document:
     theme: spacelab	
