@@ -70,8 +70,8 @@ Observations from situational passing stats:
 ## Final notes
 For Lions fans frustrated with Stafford (including myself) it's time to accept Matthew Stafford for what he is: a slightly above average quarterback. Despite piling up tons of passing yards, he's been middle of the pack in terms of passer rating during his career. One thing we can say, however, is that Stafford is not a garbage time hero that inflates his statistics during blowout games. Going back to our original questions:
 
-- Does Stafford perform better in garbage time? **Not really**
+- Does Stafford perform better in garbage time? **No, he's the same**
 - Do garbage time statistics inflate Stafford's overall passer rating? **No**
-- Are Stafford's passing yards and touchdown totals made up of mostly garbage time stats? **No**
+- Are Stafford's passing yards and touchdown totals made up of mostly garbage time stats? **No, it's about 10%**
 
 RIP Stat Padford.
