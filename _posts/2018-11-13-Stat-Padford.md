@@ -12,8 +12,6 @@ output:
     keep_md: true
 preserve_yaml: true
 ---
-*[Link to full code](https://www.kaggle.com/rberger997/matt-stafford-or-stat-padford?scriptVersionId=7357779)*
-
 
 Matthew Stafford has been the starting quarterback in Detroit since 2009 and hasn't led the Lions to much success despite being among the league leaders in passing statistics over that time. This disparity has led to Stafford's reputation among Lions fans as a guy who doesn't play well in close games but pads his statistics by accumulating passing yards and touchdowns when his team is getting blown out and opposing defenses are playing conservatively. Because of this reputation, fans and local media in Detroit have even given him the nickname "Stat Padford." The question, however, is to ask if this is a fair assessment of Matthew Stafford. Does Stafford's passing in late game blowouts inflate his overall numbers? Using NFL play by play data from 2009-2017 (the span of Staffords NFL career), we'll look to find answers to the following questions:
 
@@ -76,3 +74,6 @@ For Lions fans frustrated with Stafford (including myself) it's time to accept M
 - Are Stafford's passing yards and touchdown totals made up of mostly garbage time stats? **No, it's about 10%**
 
 RIP Stat Padford.
+
+
+*[Link to full code notebook at Kaggle.com](https://www.kaggle.com/rberger997/matt-stafford-or-stat-padford?scriptVersionId=7357779)*
