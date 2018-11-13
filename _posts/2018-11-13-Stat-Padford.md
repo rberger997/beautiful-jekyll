@@ -24,7 +24,7 @@ As a lifelong Lions fan who has watched virtually every game of Stafford's caree
 
 
 ## Defining garbage time 
-To begin addressing these questions, we first have to lay out a definition of what exactly is "garbage time" for an NFL game. This is a situation in a game where one team has a big lead and is very likely to win and the general strategy changes for both teams. While there has been some [discussion](https://www.profootballfocus.com/news/defining-garbage-time) over how to define garbage time previously, for this example we'll use the following criteria:
+To begin addressing these questions, we first have to lay out a definition of what exactly is "garbage time" for an NFL game. This is a situation in a game where one team has a big lead and is very likely to win and the general strategy changes for both teams. While there has been some [discussion](https://www.profootballfocus.com/news/defining-garbage-time) over how to define garbage time previously, for this analysis we'll use the following criteria:
 
 - Team is trailing by at least 21 at any point in the game OR
 - Team is trailing by at least 14 in the second half
