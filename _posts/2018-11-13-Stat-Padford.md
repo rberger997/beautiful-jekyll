@@ -50,3 +50,24 @@ From the numbers it looks like Stafford's reputation for stat-padding is mislead
 Looking at the totals shows that garbage time attempts make up only about 10% of all Stafford's passes, meaning that 90% of his passes occur when games are competitive. The other myth we can put to rest is that a sizable portion of Stafford's total passing yardage is accumulated during garbage time as it only accounts for 10% of his total. Furthermore, Stafford's yards per attempt and touchdown rate are very similar in both situations and suggests that, despite all the narratives, he is statistically the same QB in competitive games and blowouts.
 
 
+## Stafford situational passing stats¶
+Now that we've killed off the myth of Stat Padford, let's take a closer look at Stafford's passer rating in other game situations to get a deeper breakdown of his performance. We'll compare his numbers to league average over the same time span for reference.
+
+![center](https://rberger997.github.io/img/2018-11-13-Stat-Padford/stafford_table2.png)
+
+Observations from situational passing stats:
+
+- Stafford is 4.3 points above NFL average in overall passer rating.
+- He's been most efficient and above league average in the 1st and 3rd quarters and when the game is tied.
+- He's been much worse on 4th down passing compared to the NFL average.
+- In all other situations examined, Stafford has been within a few points of the NFL average.
+
+
+## Final notes
+For Lions fans frustrated with Stafford (including myself) it's time to accept Matthew Stafford for what he is: a slightly above average quarterback. Despite piling up tons of passing yards, he's been middle of the pack in terms of passer rating during his career. One thing we can say, however, is that Stafford is not a garbage time hero that inflates his statistics during blowout games. Going back to our original questions:
+
+- Does Stafford perform better in garbage time? **Not really**
+- Do garbage time statistics inflate Stafford's overall passer rating? **No**
+- Are Stafford's passing yards and touchdown totals made up of mostly garbage time stats? **No**
+
+RIP Stat Padford.
