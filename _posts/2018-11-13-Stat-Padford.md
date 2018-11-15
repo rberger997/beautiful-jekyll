@@ -66,7 +66,7 @@ Observations from situational passing stats:
 
 
 
-## Final notes
+## Final notes on Stafford
 For Lions fans frustrated with Stafford (including myself) it's time to accept Matthew Stafford for what he is: a slightly above average quarterback. Despite piling up tons of passing yards, he's been middle of the pack by passer rating during his career. One thing we can say, however, is that Stafford is not a garbage time hero that inflates his statistics during blowout games. Going back to our original questions:
 
 - Does Stafford perform better in garbage time? **No, he's the same**
@@ -74,6 +74,30 @@ For Lions fans frustrated with Stafford (including myself) it's time to accept M
 - Are Stafford's passing yards and touchdown totals made up of mostly garbage time stats? **No, it's about 10%**
 
 RIP Stat Padford.
+
+## Which NFL QBs pad their stats in garbage time?
+If Stafford isn't piling up stats in garbage time then who is? We can use the same approach to look at all QBs from 2009-2017 and to quantify it we'll use what I call the Garbage Time Boost - the difference between a QBs overall passer rating and their non-garbage time rating. For example, a QB with an overall rating of 90 but a non-garbage time rating of 88 would have a Garbage Time Boost of 2 points, meaning his overall rating is elevated 2 points due to his garbage time statistics.
+
+![center](https://rberger997.github.io/img/2018-11-13-Stat-Padford/stafford_histogram.png)
+
+There are 336 quarterbacks in our dataset, but looking at a histogram of total passing attempts it's clear that the majority of these players have very few attempts. These are mostly backups and guys who started a handful of games. To limit our study to QBs that played a significant amount, we'll set a minimum of 1500 passing attempts to get the number of QBs down to 33, approximately one per team.
+
+
+
+## Blake Bortles is the king of garbage time
+
+![center](https://rberger997.github.io/img/2018-11-13-Stat-Padford/stafford_table3.png)
+
+Looking at the table of results shows a clear winner for the award for biggest stat padder: Blake Bortles! Bortles' overall passer rating is boosted 3.7(!) points due to his garbage time statistics and is nearly triple the amount of the next highest by Andrew Luck (1.3). Additionally, about a quarter of Bortles' passing yards and touchdowns have been gained while his team is getting blown out. Compared to the rest of the NFL, Bortles has been an outlier but it hasn't hurt him financially as he's taken his garbage stats to the bank to the tune of a $54 million contract extension that was [questioned by many](http://www.espn.com/nfl/story/_/id/22590179/what-made-blake-bortles-extension-questionable-why-jacksonville-jaguars-all-nfl-2018) at the time.
+
+Surprisingly, while working on this I discovered that Michael Salfino at FiveThirtyEight did a [similar analysis](https://fivethirtyeight.com/features/blake-bortles-is-the-tom-brady-of-nfl-garbage-time/) in 2017 where he named Blake Bortles "The Tom Brady of garbage time" after looking at the same stats with a different methodology. Taken together, two independent approaches have now confirmed Blake Bortles' as the ruler of garbage time. All hail the King.
+
+## Other observations
+For the most part, garbage time statistics make very little impact on QB ratings and stat totals.
+The percentage of attempts during garbage time vary significantly between QBs of good teams (T. Brady 2.8%) and bad teams (J. Freeman 27.9%).
+More QBs have lowered their overall passer rating during garbage time (C. Kaepernick, J. Freeman, K. Cousins) than improved it.
+
+
 
 
 *[Link to full code notebook at Kaggle.com](https://www.kaggle.com/rberger997/matt-stafford-or-stat-padford?scriptVersionId=7357779)*
