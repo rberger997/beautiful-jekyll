@@ -1,0 +1,19 @@
+---
+layout: post
+title: "Introducing Kicker Rating:"
+subtitle: "A better evaluation metric for NFL kickers"
+author: "Ryan Berger"
+date: "2019-01-07"
+output: 
+  html_document:
+    theme: spacelab	
+    highlight: tango	
+    keep_md: true
+preserve_yaml: true
+---
+
+As a fan of football, I've recently gotten annoyed with the way people use statistics to evaluate NFL kickers. To illustrate what I'm talking about, take a look at this table of field goal stats from ESPN.com for the 2018 season and try to answer this question: who was the best kicker in the NFL this season?
+
+
+
+ 
