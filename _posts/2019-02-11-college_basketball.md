@@ -25,4 +25,4 @@ The challenges of this project were primarily in data wrangling and cleaning. Oh
 
 Past game results and future schedules were scraped from [college baskeball reference](https://www.sports-reference.com/cbb/) using the `rvest` package in R by looping over every date of every season from 2014-2018 (26,000+ games). Similarly, to provide analytics metrics for each team from [BartTorvik.com](http://www.barttorvik.com/#) on the day the game was played required scraping and cleaning analytics data for 353 teams on every date from 2014-2018 (250,000+ team ratings were scraped!).
 
-To see the source code for this project, check out my [Github repository])(https://github.com/rberger997/college_basketball_predictions). 
+To see the source code for this project, check out my [Github repository](https://github.com/rberger997/college_basketball_predictions). 
