@@ -18,7 +18,13 @@ After trying out a few different algorithms (linear regression, k-nearest neighb
 
 For the current season the model is performing as expected; as of February 11 the winning team is being predicted with an accuracy rate of 72.3% rate in over 3,700 games. 
 
-To generate a system to display the predictions for today's games required running a script for scraping the team ratings data for the current day, making predictions in R, pushing the `.csv` output file to Google Sheets, and linking that sheet to Tableau Public visualization that automatically refreshes every day. It seems complicated but once assembled it requires one push of a button every day to update everything and push to Tableau. Here are the predictions for todays games:
+Generating a system to display the predictions for today's games required:
+- Running a script for scraping the team ratings data for the current day
+- Making predictions in R
+- Pushing the `.csv` output file to Google Sheets
+- Linking the Google sheet to Tableau Public visualization 
+- Setting the Tableau viz to automatically refresh data every day
+It seems complicated but once assembled it requires one push of a button every day to update everything and push to Tableau. Here is the output with predictions for todays games:
 
 <iframe src="https://public.tableau.com/views/college_basketball_predictions/Dashboard1?:embed=y&:display_count=yes&:showVizHome=no&:embed=true" width="90%" height="1000"></iframe>
 
