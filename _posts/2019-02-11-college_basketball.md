@@ -12,22 +12,31 @@ output:
 preserve_yaml: true
 ---
 
-After doing some machine learning projects using public datasets in the past I decided I needed a new challenge on a project I would make from scratch: building a predictive model for college basketball games. The end goal that I wanted to accomplish with this project was to use machine learning algorithms and advanced analytics metrics to determine **(1)** which team will win every basketball game between NCAA division I teams, **(2)** projected final scores for each team, and **(3)** have a system where the daily predictions would automatically be displayed in an interactive Tableau visualization.
+After doing some machine learning projects using public datasets in the past I decided I needed a new challenge on a project I would make from scratch: building a predictive model for college basketball games. The end goal that I wanted to accomplish with this project was to use machine learning algorithms and advanced analytics metrics to determine:
+
+1. Which team will win every basketball game between NCAA division I teams
+2. Projected final scores for each team
+3. A reporting system where the daily predictions would automatically be displayed in an interactive Tableau visualization
+
+## Machine learning model
 
 After trying out a few different algorithms (linear regression, k-nearest neighbors, neural network), the best performance was achieved by treating each game as a binary classification using logistic regression (will the home team win the game: Yes or No?). The model was trained using game results from every game from the last 5 years (26,000+ games) using adjusted offensive and defensive efficiency ratings from [Bart Torvik](http://www.barttorvik.com/#) from the day the game was played as predictors and correctly picked the winning team 72% of the time in an independent test set of over 5,000 games. 
 
 For the current season the model is performing as expected; as of February 11 the winning team is being predicted with an accuracy rate of 72.3% rate in over 3,700 games. 
 
+## Tableau visualization
+
 Generating a system to display the predictions for today's games required:
-- Running a script for scraping the team ratings data for the current day
-- Making predictions in R
-- Pushing the `.csv` output file to Google Sheets
-- Linking the Google sheet to Tableau Public visualization 
+- Writing a script for scraping the team ratings data for the current day from barttorvik.com using `rvest`
+- Making predictions in R using the logistic regression model
+- Saving the results as a `.csv` output file and pushing to Google Sheets from R
+- Linking the Google Sheet to a Tableau Public visualization 
 - Setting the Tableau viz to automatically refresh data every day
 It seems complicated but once assembled it requires one push of a button every day to update everything and push to Tableau. Here is the output with predictions for todays games:
 
 <iframe src="https://public.tableau.com/views/college_basketball_predictions/Dashboard1?:embed=y&:display_count=yes&:showVizHome=no&:embed=true" width="90%" height="1000"></iframe>
 
+## Notes
 
 The challenges of this project were primarily in data wrangling and cleaning. Oh and web scraping, lots and lots of web scraping. 
 
