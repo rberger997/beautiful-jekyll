@@ -12,7 +12,7 @@ output:
 preserve_yaml: true
 ---
 
-After doing some machine learning projects using public datasets in the past I decided I needed a new challenge on a project I would make from scratch: building a predictive model for college basketball games. The end goal that I wanted to accomplish with this project was to use machine learning algorithms and advanced analytics metrics to determine:
+After doing some machine learning projects using public datasets in the past I decided I needed a new challenge on a project I would build from scratch: making a predictive model for college basketball games. The end goal that I wanted to accomplish with this project was to use machine learning algorithms and advanced analytics metrics to determine:
 
 1. Which team will win every basketball game between NCAA division I teams
 2. Projected final scores for each team
@@ -32,7 +32,8 @@ Generating a system to display the predictions for today's games required:
 - Saving the results as a `.csv` output file and pushing to Google Sheets from R
 - Linking the Google Sheet to a Tableau Public visualization 
 - Setting the Tableau viz to automatically refresh data every day
-It seems complicated but once assembled it requires one push of a button every day to update everything and push to Tableau. Here is the output with predictions for todays games:
+
+It sounds complicated but once assembled it requires one push of a button every day to update everything and push to Tableau. Here is the output with predictions for todays games:
 
 <iframe src="https://public.tableau.com/views/college_basketball_predictions/Dashboard1?:embed=y&:display_count=yes&:showVizHome=no&:embed=true" width="90%" height="1000"></iframe>
 
